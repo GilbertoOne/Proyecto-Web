@@ -18,7 +18,7 @@ and open the template in the editor.
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Probando Git</h1>
         
         <!--//Botón de inicio-->
         <div style="position: absolute;background-color: #97F267; 
