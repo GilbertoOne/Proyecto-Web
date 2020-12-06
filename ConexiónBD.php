@@ -8,7 +8,7 @@
 function conectar(){
         //Parametros de conexión
         $servername = "localhost";
-        $database = "foro";
+        $database = "tienda";
         $username = "Gilberto";
         $password = "Claro";
 

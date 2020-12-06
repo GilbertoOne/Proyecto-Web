@@ -17,7 +17,7 @@ and open the template in the editor.
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
              text-align: center;">

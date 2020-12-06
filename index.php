@@ -10,7 +10,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ForoGil</title>
+        <title>Tienda xd</title>
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body>
@@ -18,7 +18,7 @@ and open the template in the editor.
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <h1 style="font-size: 35pt">Probando Git</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         
         <!--//Botón de inicio-->
         <div style="position: absolute;background-color: #97F267; 
@@ -49,7 +49,7 @@ and open the template in the editor.
              width: 200px; left: 50px; top: 550px; font-size: 18pt;
              text-align: center;">
             
-            <B>Buscar tema</B>
+            <B>Buscar productos</B>
             <form action="Buscar.php" method="post" style="text-align: center;font-size: 18pt">
             <input type="text" name="tema" size="15"> <br>
             <input type="submit" value="Enviar">
@@ -93,19 +93,20 @@ and open the template in the editor.
                 
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM consulta";
+            $sql = "SELECT * FROM productos";
             $result = $conexion->query($sql);
             
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row = $result->fetch_assoc()) {
-                    echo "<br><B> - Tema: </B>" . $row["titulo"] . "<br><B> Comentario: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Fecha: </B>" .$row["fecha_hora"] . "<br> <B>Autor: </B>" . $row["autor"] . "<br>";
-                    ?> <a href="Tema.php?id=<?php echo $row["idconsulta"]?>">Ver respuestas</a><br><br><br>
+                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                         "<br> <B>Fecha: </B>" .$row["fechap"];
+                    ?> <a href="Tema.php?id=<?php echo $row["idconsulta"]?>">Ver comentarios</a><br><br><br>
                     <?php
                 }
             } else {
-                echo "No hay temas aún en el foro";
+                echo "No hay productos aún en la tienda";
             }
            
             
@@ -118,7 +119,7 @@ and open the template in the editor.
             {
         ?>
          
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
@@ -148,7 +149,7 @@ and open the template in the editor.
              width: 200px; left: 50px; top: 550px; font-size: 18pt;
              text-align: center;">
             
-            <B>Buscar tema</B>
+            <B>Buscar productos</B>
             <form action="Buscar.php" method="post" style="text-align: center;font-size: 18pt">
             <input type="text" name="tema" size="15"> <br>
             <input type="submit" value="Enviar">
@@ -170,19 +171,20 @@ and open the template in the editor.
                 
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM consulta";
+            $sql = "SELECT * FROM productos";
             $result = $conexion->query($sql);
             
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row = $result->fetch_assoc()) {
-                    echo "<br><B> - Tema: </B>" . $row["titulo"] . "<br><B> Comentario: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Fecha: </B>" .$row["fecha_hora"] . "<br> <B>Autor: </B>" . $row["autor"] . "<br>";
-                    ?> <a href="Tema.php?id=<?php echo $row["idconsulta"]?>">Ver respuestas</a><br><br><br>
+                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                         "<br> <B>Fecha: </B>" .$row["fechap"];
+                    ?> <a href="Tema.php?id=<?php echo $row["idconsulta"]?>">Ver comentarios</a><br><br><br>
                     <?php
                 }
             } else {
-                echo "No hay temas aún en el foro";
+                echo "No hay productos aún en la tienda";
             }
             
             mysqli_close($conexion);

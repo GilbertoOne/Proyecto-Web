@@ -11,7 +11,7 @@ and open the template in the editor.
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body>
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
              text-align: center;">
@@ -37,7 +37,7 @@ and open the template in the editor.
         </div>
         <!--//Formulario para iniciar sesión-->
         <form action="IS.php" method="post" style="text-align: center; font-size: 18pt">
-            Nombre de usuario: <input type="text" name="nomUs"> <br> <br>
+            Email: <input type="text" name="nomUs"> <br> <br>
             Contraseña: <input type="password" name="passUs"> <br> <br>
             <input type="submit" value="Enviar">
         </form>

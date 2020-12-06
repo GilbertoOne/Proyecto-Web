@@ -14,7 +14,7 @@ and open the template in the editor.
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body>
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         <?php
             if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
         ?>
@@ -53,8 +53,10 @@ and open the template in the editor.
             Nombre(s): <input type="text" name="nom"> <br> <br>
             Apellido Paterno: <input type="text" name="ap"> <br> <br>
             Apellido Materno: <input type="text" name="am"> <br> <br>
-            Nombre de usuario: <input type="text" name="nomUs"> <br> <br>
+            Email: <input type="text" name="nomUs"> <br> <br>
             Contraseña: <input type="password" name="passUs"> <br> <br>
+            Domicilio: <input type="text" name="dom"> <br> <br>
+            Teléfono: <input type="text" name="tel"> <br> <br>
             Status: <input type="text" name="status"> <br> <br>
             <input type="submit" value="Enviar">
         </form>

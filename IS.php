@@ -14,7 +14,7 @@ and open the template in the editor.
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body style="text-align: center; font-size: 18pt">
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         <?php
         include ("ConexiónBD.php");
             $conexion = conectar();
@@ -27,10 +27,10 @@ and open the template in the editor.
             {
                 if(@$_SESSION['autentificado']!=TRUE)
                 {   //Consulta para verificar usuario
-                    $sql = "SELECT * FROM usuario
-                            WHERE usr = '" . ($_POST['nomUs']) . "'
+                    $sql = "SELECT * FROM users
+                            WHERE email = '" . ($_POST['nomUs']) . "'
                     AND
-                        pwd = '" . sha1($_POST['passUs']) . "'";
+                        password = '" . sha1($_POST['passUs']) . "'";
                          
                     $resultado = $conexion->query($sql);
                     if(!$resultado)
@@ -48,9 +48,9 @@ and open the template in the editor.
                             //Declara variables de sesión del usuario
                            $_SESSION['autentificado'] = TRUE;
                            $row = $resultado->fetch_assoc(); 
-                           $_SESSION['idusuario']=$row["idusuario"];
-                           $_SESSION['nomUs'] = $row["usr"];
-                           $_SESSION['status'] = $row["status"];
+                           $_SESSION['idusuario']=$row["user_id"];
+                           $_SESSION['nomUs'] = $row["nombre"];
+                           $_SESSION['status'] = $row["admin"];
                            echo 'Bienvenido, ' . $_SESSION['nomUs'] . '. <a href="index.php">Regresar a inicio</a>.';
                                 
                         }

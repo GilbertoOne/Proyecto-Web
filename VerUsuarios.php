@@ -17,7 +17,7 @@ and open the template in the editor.
         <?php
             if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
         ?>
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
@@ -55,18 +55,19 @@ and open the template in the editor.
                 
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM usuario";
+            $sql = "SELECT * FROM users";
             
             $result = $conexion->query($sql);
             
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row = $result->fetch_assoc()) {
-                    $_SESSION['aux']=$row["idusuario"];
-                    echo "<B>Id usuario</B> ". $row["idusuario"] . "<br><B> Nombre de usuario: </B>" .
-                            $row["usr"] . "<br><B> Contraseña</B> <br>" . $row["pwd"] . 
+                    $_SESSION['aux']=$row["user_id"];
+                    echo "<B>Id usuario</B> ". $row["idusuario"] . "<br><B> Email: </B>" .
+                            $row["email"] . "<br><B> Contraseña</B> <br>" . $row["password"] . 
                             "<br> <B>Nombre: </B>" .$row["nombre"] . "<br> <B>Apellido Paterno:</B> " . $row["ape_pat"] .
-                            "<br> <B>Apellido Materno: </B>" . $row["ape_mat"]. "<br><B>Status: </B>" . $row["status"] . 
+                            "<br> <B>Apellido Materno: </B>" . $row["ape_mat"]. "<br><B>Status: </B>" . $row["admin"] .
+                            "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["direccion"] .
                             "<br>";
                     echo "<a href=ModificarUsuario.php>Modificar      </a>";
                     echo "<a href=BorrarUsuario.php>     Borrar</a><br><br><br>";

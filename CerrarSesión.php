@@ -11,7 +11,7 @@ and open the template in the editor.
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body style="text-align: center">
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         <?php
             session_start();
             if(@$_GET['salir']==true){

@@ -14,7 +14,7 @@ and open the template in the editor.
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body style="text-align: center">
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
@@ -57,6 +57,8 @@ and open the template in the editor.
         $pass=$_POST['passUs'];
         $status=$_POST['status'];
         $idusu=$_SESSION['aux'];
+        $dom=$_SESSION['dom'];
+        $tel=$_SESSION['tel'];
             include ("ConexiónBD.php");
             $conexion = conectar();
             if(!$conexion){
@@ -64,9 +66,9 @@ and open the template in the editor.
             }else{
                 
             }//Actualizando el usuario
-            $sql = "UPDATE usuario SET usr = '$nomUs', pwd = sha1('$pass'), nombre = '$nom',".
-                    "ape_pat = '$ap', ape_mat = '$am', status = '$status'"
-                    . "WHERE idusuario = '$idusu'";           
+            $sql = "UPDATE users SET email = '$nomUs', password = sha1('$pass'), nombre = '$nom',".
+                    "apellido = '$ap', admin = '$status', telefono = '$tel', domicilio = '$dom'"
+                    . "WHERE user_id = '$idusu'";           
             echo "<p>";
             
             echo "<p>";

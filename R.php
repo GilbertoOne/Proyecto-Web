@@ -11,7 +11,7 @@ and open the template in the editor.
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body style="text-align: center;font-size: 18pt">
-        <h1 style="font-size: 35pt">FOROGIL</h1>
+        <h1 style="font-size: 35pt">Tienda xd</h1>
         <?php
         // put your code here
         $nom=$_POST['nom'];
@@ -19,6 +19,8 @@ and open the template in the editor.
         $am=$_POST['am'];
         $nomUs=$_POST['nomUs'];
         $pass=$_POST['passUs'];
+        $dom=$_SESSION['dom'];
+        $tel=$_SESSION['tel'];
             include ("ConexiónBD.php");
             $conexion = conectar();
             if(!$conexion){
@@ -27,8 +29,8 @@ and open the template in the editor.
                 
             }
             //Sentencia para crear un nuevo usuario
-            $sql = "INSERT INTO usuario ".
-                    "VALUES (null,'$nomUs', sha1('$pass'), '$nom', '$ap', '$am',null)";           
+            $sql = "INSERT INTO users ".
+                    "VALUES (null,'$nom', sha1('$pass'), '$nomUs', null, '$ap', null, '$tel', '$dom', null)";           
             echo "<p>";
             
             echo "<p>";
