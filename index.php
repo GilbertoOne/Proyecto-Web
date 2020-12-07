@@ -21,7 +21,7 @@
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
              text-align: center;">
              
-            <a href="index.php"><B>Mainpage</B></a>
+            <a href="index.php"><B>Inicio</B></a>
 	
         </div>
         <!--//Botón de cerrar sesión-->
@@ -99,6 +99,7 @@
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<br> <B>Fecha: </B>" .$row["fechap"];
                     ?> <a href="Tema.php?id=<?php echo $row["idconsulta"]?>">Ver comentarios</a><br><br><br>
+                    <img src="view.php?id=<?php echo $row["id_productos"]?>" alt="Img" width="250" height="250"/>
                     <?php
                 }
             } else {
@@ -177,6 +178,7 @@
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<br> <B>Fecha: </B>" .$row["fechap"];
                     ?> <a href="Tema.php?id=<?php echo $row["idconsulta"]?>">Ver comentarios</a><br><br><br>
+                    <img src="view.php?id=<?php echo $row["id_productos"]?>" alt="Img" width="250" height="250"/>
                     <?php
                 }
             } else {

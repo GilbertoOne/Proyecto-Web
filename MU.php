@@ -59,6 +59,7 @@ and open the template in the editor.
         $idusu=$_SESSION['aux'];
         $dom=$_SESSION['dom'];
         $tel=$_SESSION['tel'];
+        $fn=$_POST['fechan'];
             include ("ConexiónBD.php");
             $conexion = conectar();
             if(!$conexion){
@@ -67,7 +68,7 @@ and open the template in the editor.
                 
             }//Actualizando el usuario
             $sql = "UPDATE users SET email = '$nomUs', password = sha1('$pass'), nombre = '$nom',".
-                    "apellido = '$ap', admin = '$status', telefono = '$tel', domicilio = '$dom'"
+                    "apellido = '$ap', admin = '$status', telefono = '$tel', domicilio = '$dom', fechan = '$fn'"
                     . "WHERE user_id = '$idusu'";           
             echo "<p>";
             

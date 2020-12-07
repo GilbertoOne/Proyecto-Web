@@ -12,7 +12,7 @@
         <?php
         #Definimos zona horaria
             date_default_timezone_set("America/Mexico_City");
-            include ("MysqlConn.php");
+            include ("ConexiónBD.php");
             #conexion
             $conexion = conectar();
              if(!$conexion && isset($_FILES['miArchivo']) && ($_FILES['miArchivo'] !='')){

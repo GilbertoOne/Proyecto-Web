@@ -1,5 +1,5 @@
 <?php
-include ("MysqlConn.php");
+include ("ConexiónBD.php");
 $conexion = conectar();
 function fObtenerMime($wfParamCadena){//creamos una funciÃ³n que recibira un parametro en este caso la extensiÃ³n del archivo
     $fsExtension = $wfParamCadena;	

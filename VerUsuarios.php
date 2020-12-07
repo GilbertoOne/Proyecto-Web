@@ -63,11 +63,11 @@ and open the template in the editor.
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row = $result->fetch_assoc()) {
                     $_SESSION['aux']=$row["user_id"];
-                    echo "<B>Id usuario</B> ". $row["idusuario"] . "<br><B> Email: </B>" .
+                    echo "<B>Id usuario</B> ". $row["user_id"] . "<br><B> Email: </B>" .
                             $row["email"] . "<br><B> Contraseña</B> <br>" . $row["password"] . 
-                            "<br> <B>Nombre: </B>" .$row["nombre"] . "<br> <B>Apellido Paterno:</B> " . $row["ape_pat"] .
-                            "<br> <B>Apellido Materno: </B>" . $row["ape_mat"]. "<br><B>Status: </B>" . $row["admin"] .
-                            "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["direccion"] .
+                            "<br> <B>Nombre: </B>" .$row["nombre"] . "<br> <B>Apellidos:</B> " . $row["apellido"] .
+                            "<br><B>Status: </B>" . $row["admin"] . "<br> <B>Fecha de nacimiento:</B> " . $row["fechan"] .
+                            "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["domicilio"] .
                             "<br>";
                     echo "<a href=ModificarUsuario.php>Modificar      </a>";
                     echo "<a href=BorrarUsuario.php>     Borrar</a><br><br><br>";

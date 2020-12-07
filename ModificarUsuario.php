@@ -51,8 +51,8 @@ and open the template in the editor.
         <!--//Formulario para modificar un usuario-->
         <form action="MU.php" method="post" style="text-align: center">
             Nombre(s): <input type="text" name="nom"> <br> <br>
-            Apellido Paterno: <input type="text" name="ap"> <br> <br>
-            Apellido Materno: <input type="text" name="am"> <br> <br>
+            Apellidos: <input type="text" name="ap"> <br> <br>
+            Fecha de nacimiento:<input type="date" name="fechan"> <br> <br>
             Email: <input type="text" name="nomUs"> <br> <br>
             Contraseña: <input type="password" name="passUs"> <br> <br>
             Domicilio: <input type="text" name="dom"> <br> <br>

@@ -16,11 +16,12 @@ and open the template in the editor.
         // put your code here
         $nom=$_POST['nom'];
         $ap=$_POST['ap'];
-        $am=$_POST['am'];
+        $fn=$_POST['fechan'];
         $nomUs=$_POST['nomUs'];
         $pass=$_POST['passUs'];
-        $dom=$_SESSION['dom'];
-        $tel=$_SESSION['tel'];
+        $dom=$_POST['dom'];
+        $tel=$_POST['tel'];
+        
             include ("ConexiónBD.php");
             $conexion = conectar();
             if(!$conexion){
@@ -30,7 +31,7 @@ and open the template in the editor.
             }
             //Sentencia para crear un nuevo usuario
             $sql = "INSERT INTO users ".
-                    "VALUES (null,'$nom', sha1('$pass'), '$nomUs', null, '$ap', null, '$tel', '$dom', null)";           
+                    "VALUES (null,'$nom', sha1('$pass'), '$nomUs', null, '$ap', '$fn', '$tel', '$dom', null)";           
             echo "<p>";
             
             echo "<p>";
