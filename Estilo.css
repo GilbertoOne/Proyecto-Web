@@ -34,8 +34,6 @@ and open the template in the editor.
     visibility: visible;
     z-index: 2;
     top: 100px;
-    background-image: url(Texturas/BG.jpg);
-    background-size: cover;
 }
 
 #Banner {
@@ -49,13 +47,55 @@ and open the template in the editor.
     background-size: cover;
 }
 
+/*Botonera*/
 
-#BotonesGeneralConf {
+#Inicio{
     position: absolute;
     visibility: visible;
-    left: 50px;
-    top: 100px;
     text-align: center;
     width: 200px;
-    background-color: red;
+    top: 100px;
+    left: 50px;
+}
+#Inicio:hover{
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+}
+
+
+#InicioSesion{
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    top: 100px;
+    left: 50px;
+}
+#InicioSesion:hover{
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+}
+
+#Registrarse{
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    top: 100px;
+    left: 50px;
+}
+
+#Registrarse:hover{
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+}
+
+#BuscadorProd{
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    top: 100px;
+    left: 50px;
+}
+#BuscadorProd:hover{
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
 }

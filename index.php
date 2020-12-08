@@ -140,25 +140,25 @@
         <!--Botonera-->
         <div id="Botonera">
             
-            <div id="BotonesGeneralConf">
+            <div id="Inicio">
             
                 <a href="index.php"><B>Inicio</B></a>
 	
             </div>
         
-            <div id="BotonesGeneralConf", style="top:150px">
+            <div id="InicioSesion", style="top:150px">
             
                 <a href="IniciarSesión.php"><B>Iniciar Sesión</B></a> 
 	
             </div>
         
-            <div style=" top: 200px;" id="BotonesGeneralConf">
+            <div style=" top: 200px;" id="Registrarse">
             
                 <a href="Registrarse.php"><B>Registrarse</B></a> 
 	
             </div>
         
-            <div style="top: 450px" id="BotonesGeneralConf">
+            <div style="top: 450px" id="BuscadorProd">
             
                 <B>Buscador de productos</B>
                 <form action="Buscar.php" method="post" style="text-align: center;font-size: 18pt">
