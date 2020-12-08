@@ -44,6 +44,7 @@ and open the template in the editor.
         
         <?php
         // put your code here
+        date_default_timezone_set("America/Mexico_City");
         $autorResp=$_SESSION['nomUs'];
         $idusuario=$_SESSION['idusuario'];
         $resp=$_POST['respuesta'];
@@ -56,8 +57,8 @@ and open the template in the editor.
                 
             }
             //Sentencia para agregar una respuesta
-            $sql = "INSERT INTO comentarios (id_comentario, user_id, contenido, id_productos)".
-                    "VALUES (null,'$idusuario', '$resp', '$idPro')";           
+            $sql = "INSERT INTO comentarios (id_comentario, user_id, contenido, fechac,id_productos)".
+                    "VALUES (null,$idusuario, '$resp', '".date('Y-m-d')."',$idPro)";           
             echo "<p>";
             
             echo "<p>";

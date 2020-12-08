@@ -99,7 +99,7 @@ and open the template in the editor.
                             "<br>";
                     
                     if ($_SESSION['status']==1){
-                        $_SESSION['aux']=$row1["id_comentario"];
+                        $_SESSION['auxcom']=$row1["id_comentario"];
                         echo "<a href=BorrarComentario.php><B>Borrar</B></a><br>";
                     }
                 }
@@ -169,6 +169,9 @@ and open the template in the editor.
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row = $result->fetch_assoc()) {
+                    $result2 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
+                    $imagen = $result2->fetch_assoc();
+                    $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
                     echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";

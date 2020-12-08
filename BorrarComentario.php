@@ -54,7 +54,7 @@ and open the template in the editor.
                 
             }
             //Sentencia de consulta SQL para borrar una respuesta
-            $aux=$_SESSION['aux'];
+            $aux=$_SESSION['auxcom'];
             $sql = "DELETE FROM comentarios WHERE id_comentario = $aux";
             
             $result = $conexion->query($sql);
