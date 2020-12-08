@@ -4,33 +4,40 @@
     session_start();
 ?>
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Symphony</title>
         <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body>
+    
+    <body id="cuerpo">
         <!--//Autentificación-->
+        
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <h1 style="font-size: 35pt">Symphony</h1>
+        <div id="Banner">
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
+        </div>
         
+        <!--Botonera-->
+        <div id="Botonera">
         <!--//Botón de inicio-->
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
              text-align: center;">
              
             <a href="index.php"><B>Inicio</B></a>
-	
         </div>
+        
         <!--//Botón de cerrar sesión-->
         <div style="position: absolute;background-color: #85A8F6; 
              width: 200px; left: 50px; top: 150px; font-size: 18pt;
              text-align: center;">
             
             <a href="CerrarSesión.php?salir=true"><B>Cerrar Sesión</B></a> 
-	
         </div>
  
         <!--//Botón de buscar-->
@@ -71,23 +78,21 @@
 
                         <a href="FormAP.php"><B>Agregar productos</B></a> 
 
-                    </div>
+                    </div> 
             <?php
                 }
             ?>
+        </div>
+        <!--/Botonera-->
         
-        <div style="position: absolute; background-color: khaki;
-             left: 300px; top: 100px; text-align: center; font-size: 18pt">
+        <div id="productos">
         
         <?php
-        // put your code here
         include ("ConexiónBD.php");
             $conexion = conectar();
             
             if(!$conexion){
                 echo "ERROR";
-            }else{
-                
             }
             //Sentencia de consulta SQL
             $sql = "SELECT * FROM productos";
@@ -101,71 +106,69 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
-                    ?> 
+        ?>
+            
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
             <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
+
             <br>
             
-                    <?php
+        <?php
                 }
             } else {
                 echo "No hay productos aún en la tienda";
-            }
-           
-            
+            }    
             mysqli_close($conexion);
         ?>
         </div>
+        
         <?php
             }
             else
             {
         ?>
-         
-        <h1 style="font-size: 35pt">Symphony</h1>
-        
-        <div style="position: absolute;background-color: #97F267; 
-             width: 200px; left: 50px; top: 100px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="index.php"><B>Inicio</B></a>
-	
+        <!--Banner--> 
+        <div id="Banner">
+            <h1 >Symphony</h1>
+            <h5 >Music is the answer</h5>
         </div>
         
-        <div style="position: absolute;background-color: #85A8F6; 
-             width: 200px; left: 50px; top: 150px; font-size: 18pt;
-             text-align: center;">
+        <!--Botonera-->
+        <div id="Botonera">
             
-            <a href="IniciarSesión.php"><B>Iniciar Sesión</B></a> 
-	
-        </div>
-        
-        <div style="position: absolute; background-color: #F685BF; 
-             width: 200px; left: 50px; top: 200px; font-size: 18pt;
-             text-align: center;">
+            <div id="Inicio">
             
-            <a href="Registrarse.php"><B>Registrarse</B></a> 
+                <a href="index.php"><B>Inicio</B></a>
 	
-        </div>
+            </div>
         
-        <div style="position: absolute; background-color: rgb; 
-             width: 200px; left: 50px; top: 550px; font-size: 18pt;
-             text-align: center;">
+            <div id="InicioSesion", style="top:150px">
             
-            <B>Buscar productos</B>
-            <form action="Buscar.php" method="post" style="text-align: center;font-size: 18pt">
-            <input type="text" name="tema" size="15"> <br>
-            <input type="submit" value="Enviar">
-            </form>
+                <a href="IniciarSesión.php"><B>Iniciar Sesión</B></a> 
 	
-        </div>
+            </div>
         
-        <div style="position: absolute; background-color: khaki;
-             left: 300px; top: 100px; text-align: center; font-size: 18pt">
+            <div style=" top: 200px;" id="Registrarse">
+            
+                <a href="Registrarse.php"><B>Registrarse</B></a> 
+	
+            </div>
+        
+            <div style="top: 450px" id="BuscadorProd">
+            
+                <B>Buscador de productos</B>
+                <form action="Buscar.php" method="post" style="text-align: center;font-size: 18pt">
+                    <input type="text" name="tema" size="15"> <br>
+                    <input type="submit" value="Buscar">
+                </form>
+	
+            </div>
+    </div>    
+        <div id="productos" >
         
         <?php
         // put your code here
@@ -189,13 +192,15 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
-                    ?> 
+                ?> 
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
+
             <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
+
             <br>
             
                     <?php
@@ -211,6 +216,8 @@
             }
         ?>
             
-        </div>   
+        </div>
+
     </body>
+
 </html>

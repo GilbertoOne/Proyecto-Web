@@ -7,5 +7,95 @@ and open the template in the editor.
     Created on : 6 nov. 2020, 23:50:17
     Author     : gilbe
 */
-body {background-color: #F7C91E;font-size: 18pt}
-h1 {text-align: center; background-color: #D7AB09}
+
+#cuerpo {
+    font-family: sans-serif;
+    /*background-image: url(Texturas/BG.jpg);*/
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+    font-size: 15pt;
+    
+    
+}
+
+#productos {
+    color: white;
+    position: absolute;
+    visibility: visible;
+    top: 200px;
+    left: 300px;
+    width: 1000px;
+    text-align: center;
+    background: rgba(0,0,0,.09);
+}
+
+
+#Botonera {
+    position: absolute;
+    visibility: visible;
+    z-index: 2;
+    top: 100px;
+}
+
+#Banner {
+    visibility: visible;
+    position: absolute;
+    z-index: 1;
+    width: 1270px;
+    left: 60px;
+    color: white;
+    background-image: url(Texturas/BG.jpg);
+    background-size: cover;
+}
+
+/*Botonera*/
+
+#Inicio{
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    top: 100px;
+    left: 50px;
+}
+#Inicio:hover{
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+}
+
+
+#InicioSesion{
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    top: 100px;
+    left: 50px;
+}
+#InicioSesion:hover{
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+}
+
+#Registrarse{
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    top: 100px;
+    left: 50px;
+}
+
+#Registrarse:hover{
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+}
+
+#BuscadorProd{
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    top: 100px;
+    left: 50px;
+}
+#BuscadorProd:hover{
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+}
