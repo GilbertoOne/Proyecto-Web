@@ -146,7 +146,7 @@
 	
             </div>
         
-            <div id="InicioSesion", style="top:150px">
+            <div id="InicioSesion" style="top:150px">
             
                 <a href="IniciarSesión.php"><B>Iniciar Sesión</B></a> 
 	

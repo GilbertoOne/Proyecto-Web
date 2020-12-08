@@ -28,8 +28,7 @@
         <?php    
             if(@$_SESSION['admin']){
              ?>
-        <div id="botonadmin"><a href="AdminUsuarios.php">Administrador de Usuarios </a></div>
-        <div id="botonadmin"><a href="AdminProductos.php">Administrador de Productos </a></div>
+        
         <?php
             }
             }

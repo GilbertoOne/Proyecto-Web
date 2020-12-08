@@ -9,8 +9,8 @@ function conectar(){
         //Parametros de conexión
         $servername = "localhost";
         $database = "tienda";
-        $username = "root";
-        $password = "maflUAA2018";
+        $username = "Gilberto";
+        $password = "Claro";
 
         // Crear la conexion
         $conn = mysqli_connect($servername, $username, $password, $database);

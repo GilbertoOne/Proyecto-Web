@@ -84,7 +84,9 @@ and open the template in the editor.
                 <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
                 <br><?php
                     if ($_SESSION['status']==1){
-                        echo "<a href=BorrarProducto.php><B>Borrar</B></a><br><br><br>";
+                        echo "<a href=BorrarProducto.php><B>Borrar</B></a><br>";
+                        $_SESSION['auxpro']=$row["id_productos"];
+                        echo "<a href=ModificarProducto.php><B>Modificar</B></a><br><br><br>";
                     }
                 }
             } else {
