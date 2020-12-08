@@ -4,33 +4,40 @@
     session_start();
 ?>
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Symphony</title>
         <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body>
+    
+    <body id="cuerpo">
         <!--//Autentificación-->
+        
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <h1 style="font-size: 35pt">Symphony</h1>
+        <div id="Banner">
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
+        </div>
         
+        <!--Botonera-->
+        <div id="Botonera">
         <!--//Botón de inicio-->
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
              text-align: center;">
              
             <a href="index.php"><B>Inicio</B></a>
-	
         </div>
+        
         <!--//Botón de cerrar sesión-->
         <div style="position: absolute;background-color: #85A8F6; 
              width: 200px; left: 50px; top: 150px; font-size: 18pt;
              text-align: center;">
             
             <a href="CerrarSesión.php?salir=true"><B>Cerrar Sesión</B></a> 
-	
         </div>
  
         <!--//Botón de buscar-->
@@ -71,23 +78,21 @@
 
                         <a href="FormAP.php"><B>Agregar productos</B></a> 
 
-                    </div>
+                    </div> 
             <?php
                 }
             ?>
+        </div>
+        <!--/Botonera-->
         
-        <div style="position: absolute; background-color: khaki;
-             left: 300px; top: 100px; text-align: center; font-size: 18pt">
+        <div id="cuerpo">
         
         <?php
-        // put your code here
         include ("ConexiónBD.php");
             $conexion = conectar();
             
             if(!$conexion){
                 echo "ERROR";
-            }else{
-                
             }
             //Sentencia de consulta SQL
             $sql = "SELECT * FROM productos";
@@ -101,33 +106,42 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
-                    ?> 
+        ?>
+            
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
+<<<<<<< HEAD
             <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
+=======
+            <a href="view.php">Comentarios</a>
+>>>>>>> redesign1
             <br>
             
-                    <?php
+        <?php
                 }
             } else {
                 echo "No hay productos aún en la tienda";
-            }
-           
-            
+            }    
             mysqli_close($conexion);
         ?>
         </div>
+        
         <?php
             }
             else
             {
         ?>
-         
-        <h1 style="font-size: 35pt">Symphony</h1>
+        <!--Banner--> 
+        <div id="Banner">
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
+        </div>
         
+        <!--Botonera-->
+        <div id="Botonera">
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
              text-align: center;">
@@ -163,9 +177,8 @@
             </form>
 	
         </div>
-        
-        <div style="position: absolute; background-color: khaki;
-             left: 300px; top: 100px; text-align: center; font-size: 18pt">
+    </div>    
+        <div id="productos" >
         
         <?php
         // put your code here
@@ -189,13 +202,17 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
-                    ?> 
+                ?> 
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
+<<<<<<< HEAD
             <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
+=======
+            <a href="view.php">Comentarios</a>
+>>>>>>> redesign1
             <br>
             
                     <?php
@@ -211,6 +228,8 @@
             }
         ?>
             
-        </div>   
+        </div>
+
     </body>
+
 </html>
