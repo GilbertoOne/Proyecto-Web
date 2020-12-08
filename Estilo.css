@@ -10,27 +10,22 @@ and open the template in the editor.
 
 #cuerpo {
     font-family: sans-serif;
-    background-image: url(Texturas/BG.jpg);
-    background-size: cover;
-    font-size: 18pt;
+    /*background-image: url(Texturas/BG.jpg);*/
+    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+    font-size: 15pt;
+    
+    
 }
 
 #productos {
     color: white;
     position: absolute;
     visibility: visible;
-    top: 100px;
+    top: 200px;
     left: 300px;
-    width: 900px;
+    width: 1000px;
     text-align: center;
-}
-
-#Banner {
-    visibility: visible;
-    position: absolute;
-    z-index: 1;
-    width: 1080px;
-    color: white;
+    background: rgba(0,0,0,.09);
 }
 
 
@@ -39,4 +34,28 @@ and open the template in the editor.
     visibility: visible;
     z-index: 2;
     top: 100px;
+    background-image: url(Texturas/BG.jpg);
+    background-size: cover;
+}
+
+#Banner {
+    visibility: visible;
+    position: absolute;
+    z-index: 1;
+    width: 1270px;
+    left: 60px;
+    color: white;
+    background-image: url(Texturas/BG.jpg);
+    background-size: cover;
+}
+
+
+#BotonesGeneralConf {
+    position: absolute;
+    visibility: visible;
+    left: 50px;
+    top: 100px;
+    text-align: center;
+    width: 200px;
+    background-color: red;
 }

@@ -85,7 +85,7 @@
         </div>
         <!--/Botonera-->
         
-        <div id="cuerpo">
+        <div id="productos">
         
         <?php
         include ("ConexiónBD.php");
@@ -133,47 +133,40 @@
         ?>
         <!--Banner--> 
         <div id="Banner">
-            <h1>Symphony</h1>
-            <h5>Music is the answer</h5>
+            <h1 >Symphony</h1>
+            <h5 >Music is the answer</h5>
         </div>
         
         <!--Botonera-->
         <div id="Botonera">
-        <div style="position: absolute;background-color: #97F267; 
-             width: 200px; left: 50px; top: 100px; font-size: 18pt;
-             text-align: center;">
             
-            <a href="index.php"><B>Inicio</B></a>
+            <div id="BotonesGeneralConf">
+            
+                <a href="index.php"><B>Inicio</B></a>
 	
-        </div>
+            </div>
         
-        <div style="position: absolute;background-color: #85A8F6; 
-             width: 200px; left: 50px; top: 150px; font-size: 18pt;
-             text-align: center;">
+            <div id="BotonesGeneralConf", style="top:150px">
             
-            <a href="IniciarSesión.php"><B>Iniciar Sesión</B></a> 
+                <a href="IniciarSesión.php"><B>Iniciar Sesión</B></a> 
 	
-        </div>
+            </div>
         
-        <div style="position: absolute; background-color: #F685BF; 
-             width: 200px; left: 50px; top: 200px; font-size: 18pt;
-             text-align: center;">
+            <div style=" top: 200px;" id="BotonesGeneralConf">
             
-            <a href="Registrarse.php"><B>Registrarse</B></a> 
+                <a href="Registrarse.php"><B>Registrarse</B></a> 
 	
-        </div>
+            </div>
         
-        <div style="position: absolute; background-color: rgb; 
-             width: 200px; left: 50px; top: 550px; font-size: 18pt;
-             text-align: center;">
+            <div style="top: 450px" id="BotonesGeneralConf">
             
-            <B>Buscar productos</B>
-            <form action="Buscar.php" method="post" style="text-align: center;font-size: 18pt">
-            <input type="text" name="tema" size="15"> <br>
-            <input type="submit" value="Enviar">
-            </form>
+                <B>Buscador de productos</B>
+                <form action="Buscar.php" method="post" style="text-align: center;font-size: 18pt">
+                    <input type="text" name="tema" size="15"> <br>
+                    <input type="submit" value="Buscar">
+                </form>
 	
-        </div>
+            </div>
     </div>    
         <div id="productos" >
         
