@@ -4,12 +4,14 @@
     session_start();
 ?>
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Symphony</title>
         <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body>
+    
+    <body id="cuerpo">
         <!--//Autentificación-->
         <?php
             if(@$_SESSION['autentificado']==TRUE){
@@ -211,6 +213,8 @@
             }
         ?>
             
-        </div>   
+        </div>
+
     </body>
+
 </html>

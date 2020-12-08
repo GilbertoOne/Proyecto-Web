@@ -9,3 +9,8 @@ and open the template in the editor.
 */
 body {background-color: #F7C91E;font-size: 18pt}
 h1 {text-align: center; background-color: #D7AB09}
+#cuerpo {
+    font-family: sans-serif;
+    
+    
+}
