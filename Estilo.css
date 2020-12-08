@@ -7,10 +7,36 @@ and open the template in the editor.
     Created on : 6 nov. 2020, 23:50:17
     Author     : gilbe
 */
-body {background-color: #F7C91E;font-size: 18pt}
-h1 {text-align: center; background-color: #D7AB09}
+
 #cuerpo {
     font-family: sans-serif;
-    
-    
+    background-image: url(Texturas/BG.jpg);
+    background-size: cover;
+    font-size: 18pt;
+}
+
+#productos {
+    color: white;
+    position: absolute;
+    visibility: visible;
+    top: 100px;
+    left: 300px;
+    width: 900px;
+    text-align: center;
+}
+
+#Banner {
+    visibility: visible;
+    position: absolute;
+    z-index: 1;
+    width: 1080px;
+    color: white;
+}
+
+
+#Botonera {
+    position: absolute;
+    visibility: visible;
+    z-index: 2;
+    top: 100px;
 }
