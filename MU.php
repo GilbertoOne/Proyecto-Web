@@ -52,13 +52,12 @@ and open the template in the editor.
         if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
         $nom=$_POST['nom'];
         $ap=$_POST['ap'];
-        $am=$_POST['am'];
         $nomUs=$_POST['nomUs'];
         $pass=$_POST['passUs'];
         $status=$_POST['status'];
         $idusu=$_SESSION['aux'];
-        $dom=$_SESSION['dom'];
-        $tel=$_SESSION['tel'];
+        $dom=$_POST['dom'];
+        $tel=$_POST['tel'];
         $fn=$_POST['fechan'];
             include ("ConexiónBD.php");
             $conexion = conectar();
