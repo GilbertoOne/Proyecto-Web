@@ -44,7 +44,7 @@
                     //Ejecutando el Query
                     $result = mysqli_query($conexion, $query);
                     mysqli_close($conexion);//cerramos la conexiÃ³n
-                    header('Location: AdminProductos.php');
+                    header('Location: index.php');
                     } else {echo "Error: " . $sql . "<br>" . $conexion->error;}
                     mysqli_close($conexion);
             }

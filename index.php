@@ -32,14 +32,7 @@
             <a href="CerrarSesión.php?salir=true"><B>Cerrar Sesión</B></a> 
 	
         </div>
-        <!--//Botón de agregar tema-->
-        <div style="position: absolute; background-color: #F685BF; 
-             width: 200px; left: 50px; top: 200px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="AgregarTema.php"><B>Agregar tema</B></a> 
-	
-        </div>
+ 
         <!--//Botón de buscar-->
         <div style="position: absolute; background-color: rgb; 
              width: 200px; left: 50px; top: 550px; font-size: 18pt;
@@ -71,6 +64,14 @@
                        <a href="VerUsuarios.php"><B>Administrar Usuarios</B></a> 
 
                    </div>
+                    <!--//Botón de agregar producto-->
+                    <div style="position: absolute; background-color: #F685BF; 
+                         width: 200px; left: 50px; top: 200px; font-size: 18pt;
+                         text-align: center;">
+
+                        <a href="FormAP.php"><B>Agregar productos</B></a> 
+
+                    </div>
             <?php
                 }
             ?>

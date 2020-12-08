@@ -20,10 +20,10 @@
                 <th>
         <!-- Mostramos Inicio de sesion en caso de que la variable de sesion autentificado sea falso (no existe un usuario en la sesion) -->
         <?php if(@$_SESSION['autentificado']==FALSE){ ?>
-                <div id="botonInicio"><a href="FormInicio.php">INICIA SESION </a><br></div>
+        <div id="botonInicio"><a href="IniciarSesión.php">INICIA SESION </a><br></div>
         <!-- Mostramos Cerrar sesion si una sesion ya esta iniciada -->
         <?php } else { ?>
-        <div id="botoncerrar"><a href="CerrarSesion.php?salir=true">CIERRA SESION </a></div>
+        <div id="botoncerrar"><a href="CerrarSesión.php?salir=true">CIERRA SESION </a></div>
                 <!-- Mostramos la opción Administrador de usuarios si el usuario que esta iniciado es administrador -->
         <?php    
             if(@$_SESSION['admin']){
@@ -39,7 +39,7 @@
         <form name='form1' method='POST' enctype="multipart/form-data" action='AgregarProducto.php'>
             <table border='1' align='center'>
                 <tr>
-                    <td>Nombre del prodcuto:
+                    <td>Nombre del producto:
                     <input name='nomp' type='text' id='nomp' size='30' maxlength='30'></td>
                 </tr>
                 <tr>
@@ -64,7 +64,7 @@
             </table>
         </form>
         </div>
-            <div id="botonvolver"><a href="AdminProductos.php">&nbsp;Volver</a></div>
+            <div id="botonvolver"><a href="index.php">&nbsp;Volver</a></div>
     </div>
     </body>
 </html>

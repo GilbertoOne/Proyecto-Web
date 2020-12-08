@@ -30,9 +30,9 @@ function fObtenerMime($wfParamCadena){//creamos una funciÃ³n que recibira un p
     $fsExtension = $wfParamCadena;	
     if  ($fsExtension =='bmp' || $fsExtension=='BMP'){ $mime = 'image/bmp'; }
     if  ($fsExtension =='gif' || $fsExtension=='GIF'){ $mime ='image/gif' ; }
-    if  ($fsExtension =='jpe' || $fsExtension=='JPE'){ $mime ='image/jpeg' ; }
+    if  ($fsExtension =='jpe' || $fsExtension=='JPE'){ $mime ='image/jpe' ; }
     if  ($fsExtension =='jpeg' || $fsExtension=='JPEG'){ $mime = 'image/jpeg' ; }
-    if  ($fsExtension =='jpg' || $fsExtension =='JPG' ){ $mime ='image/jpeg'; }
+    if  ($fsExtension =='jpg' || $fsExtension =='JPG' ){ $mime ='image/jpg'; }
     if  ($fsExtension =='png' || $fsExtension=='PNG'){ $mime = 'image/png'; }    
     return $mime;//en base a su extenxiÃ³n la function retornara un tipo de mime 
 }
