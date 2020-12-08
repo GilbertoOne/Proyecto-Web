@@ -10,15 +10,14 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Borrar Consulta</title>
+        <title>Agregar Respuesta</title>
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body style="text-align: center">
         <?php
-            if(@$_SESSION['autentificado']==TRUE | $_SESSION['status']==1){
+            if(@$_SESSION['autentificado']==TRUE){
         ?>
         <h1 style="font-size: 35pt">Tienda xd</h1>
-        
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
              text-align: center;">
@@ -44,27 +43,32 @@ and open the template in the editor.
         </div>
         
         <?php
-        
-        include ("ConexiónBD.php");
+        // put your code here
+        $autorResp=$_SESSION['nomUs'];
+        $idusuario=$_SESSION['idusuario'];
+        $resp=$_POST['respuesta'];
+        $idPro=$_SESSION['aux'];
+            include ("ConexiónBD.php");
             $conexion = conectar();
-            
             if(!$conexion){
                 echo "ERROR";
             }else{
                 
             }
-            //Sentencia de consulta SQL para borrar una respuesta
-            $aux=$_SESSION['aux'];
-            $sql = "DELETE FROM respuesta WHERE idrespuesta = $aux";
+            //Sentencia para agregar una respuesta
+            $sql = "INSERT INTO comentarios (id_comentario, user_id, contenido, id_productos)".
+                    "VALUES (null,'$idusuario', '$resp', '$idPro')";           
+            echo "<p>";
             
-            $result = $conexion->query($sql);
-            
-            echo "Respuesta borrada";
-            
+            echo "<p>";
+            if ($conexion->query($sql) == TRUE) {
+                echo "Respuesta agregada con éxito";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conexion->error;
+            }
             
             mysqli_close($conexion);
         ?>
-        
         <?php
         // put your code here
         }
@@ -78,6 +82,5 @@ and open the template in the editor.
             <?php
             }
         ?>
-        
     </body>
 </html>

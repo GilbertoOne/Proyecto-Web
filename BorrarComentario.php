@@ -53,13 +53,13 @@ and open the template in the editor.
             }else{
                 
             }
-            //Sentencia de consulta SQL para borrar una consulta
+            //Sentencia de consulta SQL para borrar una respuesta
             $aux=$_SESSION['aux'];
-            $sql = "DELETE FROM consulta WHERE idconsulta = $aux";
+            $sql = "DELETE FROM comentarios WHERE id_comentario = $aux";
             
             $result = $conexion->query($sql);
             
-            echo "Tema borrado";
+            echo "Respuesta borrada";
             
             
             mysqli_close($conexion);

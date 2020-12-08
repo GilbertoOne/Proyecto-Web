@@ -65,8 +65,8 @@ and open the template in the editor.
                 //echo "Conn ok<BR>";
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM consulta WHERE idconsulta =  $var";
-            $sql1 = "SELECT * FROM respuesta WHERE id_consulta =  $var";
+            $sql = "SELECT * FROM productos WHERE id_productos =  $var";
+            $sql1 = "SELECT * FROM comentarios WHERE id_productos =  $var";
             $result = $conexion->query($sql);
             $result1 = $conexion->query($sql1);
             
@@ -74,36 +74,43 @@ and open the template in the editor.
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row = $result->fetch_assoc()) {
-                    echo "<br><B> - Tema: </B>" . $row["titulo"] . "<br><B> Comentario: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Fecha: </B>" .$row["fecha_hora"] . "<br> <B>Autor: </B>" . $row["autor"] . "<br>";
-                    if ($_SESSION['nomUs']==$row["autor"] | $_SESSION['status']==1){
-                        echo "<a href=BorrarConsulta.php><B>Borrar</B></a><br><br><br>";
+                    $result2 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
+                    $imagen = $result2->fetch_assoc();
+                    $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
+                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
+                    ?> 
+                <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
+                <br><?php
+                    if ($_SESSION['status']==1){
+                        echo "<a href=BorrarProducto.php><B>Borrar</B></a><br><br><br>";
                     }
                 }
             } else {
-                echo "No hay temas aún en el foro";
+                echo "No hay productos aún en la tienda";
             }
             
            if($result1->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row1 = $result1->fetch_assoc()) {
-                    echo "<br><B> - Respuesta </B><br><B> De: </B>" . $row1["autor"] .
-                           "<br>". $row1["respuesta"] . "<br> <B>Fecha: </B>" .$row1["fecha_hora"] . 
+                    echo "<br><B> - Comentario </B><br><B> De: </B>" . $row1["user_id"] .
+                           "<br>". $row1["contenido"] . "<br> <B>Fecha: </B>" .$row1["fechac"] . 
                             "<br>";
                     
-                    if ($_SESSION['nomUs']==$row1["autor"] | $_SESSION['status']==1){
-                        $_SESSION['aux']=$row1["idrespuesta"];
-                        echo "<a href=BorrarRespuesta.php><B>Borrar</B></a><br>";
+                    if ($_SESSION['status']==1){
+                        $_SESSION['aux']=$row1["id_comentario"];
+                        echo "<a href=BorrarComentario.php><B>Borrar</B></a><br>";
                     }
                 }
             } else {
-                echo "No hay respuestas";
+                echo "No hay comentarios";
             }
             
             mysqli_close($conexion);
         ?>
-            <form action="AR.php" method="post" style="text-align: center">
-                Respuesta: <br><br><textarea name="respuesta" cols="75" rows="5"></textarea> <br> <br>
+                <form action="AC.php" method="post" style="text-align: center">
+                Comentar: <br><br><textarea name="respuesta" cols="75" rows="5"></textarea> <br> <br>
                 <input type="submit" value="Enviar">
             </form>
         <?php
@@ -154,30 +161,37 @@ and open the template in the editor.
                 //echo "Conn ok<BR>";
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM consulta WHERE idconsulta =  $var";
-            $sql1 = "SELECT * FROM respuesta WHERE id_consulta =  $var";
+            $sql = "SELECT * FROM productos WHERE id_productos =  $var";
+            $sql1 = "SELECT * FROM comentarios WHERE id_productos =  $var";
             $result = $conexion->query($sql);
             $result1 = $conexion->query($sql1);
             
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row = $result->fetch_assoc()) {
-                    echo "<br><B> - Tema: </B>" . $row["titulo"] . "<br><B> Comentario: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Fecha: </B>" .$row["fecha_hora"] . "<br> <B>Autor: </B>" . $row["autor"] . "<br><br>";
+                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
+                    ?> 
+                <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
+                <br><?php
+                    
                 }
             } else {
-                echo "No hay temas aún en el foro";
+                echo "No hay productos aún en la tienda";
             }
             
-            if($result1->num_rows > 0) {
+           if($result1->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row1 = $result1->fetch_assoc()) {
-                    echo "<br><B> - Respuesta </B><br><B> De: </B>" . $row1["autor"] .
-                           "<br>". $row1["respuesta"] . "<br> <B>Fecha: </B>" .$row1["fecha_hora"] . 
-                            "<br><br>";
+                    echo "<br><B> - Comentario </B><br><B> De: </B>" . $row1["user_id"] .
+                           "<br>". $row1["contenido"] . "<br> <B>Fecha: </B>" .$row1["fechac"] . 
+                            "<br>";
+                    
+                    
                 }
             } else {
-                echo "No hay respuestas";
+                echo "No hay comentarios";
             }
             
             mysqli_close($conexion);

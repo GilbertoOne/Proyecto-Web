@@ -107,7 +107,7 @@
                     ?> 
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-            <a href="view.php"/>Comentarios</a>
+            <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
             <br>
             
                     <?php
@@ -195,7 +195,7 @@
                     ?> 
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-            <a href="view.php"/>Comentarios</a>
+            <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
             <br>
             
                     <?php

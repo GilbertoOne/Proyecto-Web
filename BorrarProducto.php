@@ -10,14 +10,15 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Agregar Respuesta</title>
+        <title>Borrar Consulta</title>
         <Link rel="stylesheet" href="Estilo.css">
     </head>
     <body style="text-align: center">
         <?php
-            if(@$_SESSION['autentificado']==TRUE){
+            if(@$_SESSION['autentificado']==TRUE | $_SESSION['status']==1){
         ?>
         <h1 style="font-size: 35pt">Tienda xd</h1>
+        
         <div style="position: absolute;background-color: #97F267; 
              width: 200px; left: 50px; top: 100px; font-size: 18pt;
              text-align: center;">
@@ -43,31 +44,31 @@ and open the template in the editor.
         </div>
         
         <?php
-        // put your code here
-        $autorResp=$_SESSION['nomUs'];
-        $resp=$_POST['respuesta'];
-        $idCon=$_SESSION['aux'];
-            include ("ConexiónBD.php");
+        
+        include ("ConexiónBD.php");
             $conexion = conectar();
+            
             if(!$conexion){
                 echo "ERROR";
             }else{
                 
             }
-            //Sentencia para agregar una respuesta
-            $sql = "INSERT INTO respuesta (idrespuesta, respuesta, id_consulta, autor)".
-                    "VALUES (null,'$resp', '$idCon', '$autorResp')";           
-            echo "<p>";
+            //Sentencia de consulta SQL para borrar una consulta
+            $aux=$_SESSION['aux'];
+            $sql1 = "DELETE FROM imagenes WHERE id_productos = $aux";
+            $sql2 = "DELETE FROM comentarios WHERE id_productos = $aux";
+            $sql3 = "DELETE FROM productos WHERE id_productos = $aux";
             
-            echo "<p>";
-            if ($conexion->query($sql) == TRUE) {
-                echo "Respuesta agregada con éxito";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conexion->error;
-            }
+            $result1 = $conexion->query($sql1);
+            $result2 = $conexion->query($sql2);
+            $result3 = $conexion->query($sql3);
+            
+            echo "Tema borrado";
+            
             
             mysqli_close($conexion);
         ?>
+        
         <?php
         // put your code here
         }
@@ -81,5 +82,6 @@ and open the template in the editor.
             <?php
             }
         ?>
+        
     </body>
 </html>
