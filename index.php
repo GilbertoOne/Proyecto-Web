@@ -113,11 +113,8 @@
             
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-<<<<<<< HEAD
             <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
-=======
-            <a href="view.php">Comentarios</a>
->>>>>>> redesign1
+
             <br>
             
         <?php
@@ -208,11 +205,9 @@
                 ?> 
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-<<<<<<< HEAD
+
             <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
-=======
-            <a href="view.php">Comentarios</a>
->>>>>>> redesign1
+
             <br>
             
                     <?php
