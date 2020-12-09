@@ -70,6 +70,7 @@ and open the template in the editor.
                             "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["domicilio"] .
                             "<br>";
                     echo "<a href=ModificarUsuario.php>Modificar      </a>";
+                    echo "<a href=EnvíoCorreo.php>Enviar Correo      </a>";
                     echo "<a href=BorrarUsuario.php>     Borrar</a><br><br><br>";
                 }
             } else {
