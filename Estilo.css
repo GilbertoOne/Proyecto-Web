@@ -47,7 +47,7 @@ and open the template in the editor.
 
 /*Botonera*/
 
-#Inicio{
+#InicioBtn{
     color: white;
     position: absolute;
     visibility: visible;
@@ -60,14 +60,14 @@ and open the template in the editor.
     
     
 }
-#Inicio:hover{
+#InicioBtn:hover{
     width: 240px;
     transition: .5s;
     background: rgba(255, 133, 102,.5);
 }
 
 
-#InicioSesion{
+#InicioSesionBtn{
     color: white;
     position: absolute;
     visibility: visible;
@@ -78,13 +78,13 @@ and open the template in the editor.
     left: 50px;
     background: rgba(255,255,255,.09);
 }
-#InicioSesion:hover{
+#InicioSesionBtn:hover{
     width: 240px;
     transition: .5s;
     background: rgba(255, 133, 102,.5);
 }
 
-#Registrarse{
+#RegistrarseBtn{
     color: white;
     position: absolute;
     visibility: visible;
@@ -97,13 +97,13 @@ and open the template in the editor.
 }
 
 
-#Registrarse:hover{
+#RegistrarseBtn:hover{
     width: 240px;
     transition: .5s;
     background: rgba(255, 133, 102,.5);
 }
 
-#BuscadorProd{
+#BuscadorProdBtn{
     color: white;
     position: absolute;
     visibility: visible;
@@ -113,7 +113,7 @@ and open the template in the editor.
     left: 50px;
     background: rgba(255,255,255,.09);
 }
-#BuscadorProd:hover{
+#BuscadorProdBtn:hover{
     width: 224px;
     transition: .5s;
     background: rgba(0, 128, 128,.5);
@@ -161,4 +161,41 @@ and open the template in the editor.
     height: 80px;
     transition: .5s;
     background: rgba(51, 51, 153,.5);
+}
+#AdminUsrBtn{
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    top: 250px;
+    left: 50px;
+    background: rgba(255,255,255,.09);
+    
+    
+}
+#AdminUsrBtn:hover{
+    width: 240px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);
+}
+
+#AdminProdBtn{
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    top: 200px;
+    left: 50px;
+    background: rgba(255,255,255,.09);
+    
+    
+}
+#AdminProdBtn:hover{
+    width: 240px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);
 }
