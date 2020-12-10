@@ -79,7 +79,7 @@
         </div>
         <!--/Botonera-->
         
-        <div id="productos">
+        <div id="PanelPrincipal">
         
         <?php
         include ("ConexiónBD.php");
@@ -165,7 +165,7 @@
             </div>
         </div>
         <!--Productos-->
-        <div id="productos" >
+        <div id="PanelPrincipal" >
         
         <?php
         include ("ConexiónBD.php");

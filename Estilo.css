@@ -13,9 +13,10 @@ and open the template in the editor.
     /*background-image: url(Texturas/BG.jpg);*/
     background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
     font-size: 15pt;
+    color: white;
 }
 
-#productos {
+#PanelPrincipal {
     color: white;
     position: absolute;
     visibility: visible;
