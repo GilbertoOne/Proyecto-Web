@@ -1,42 +1,40 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Registrarse</title>
-        <Link rel="stylesheet" href="Estilo.css">
+        <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body>
-        <div style="position: absolute;background-color: #97F267; 
-             width: 200px; left: 50px; top: 100px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="index.php"><B>Inicio</B></a>
-	
+    
+    <body id="cuerpo">
+        
+            <div id="Banner">
+            <h1 >Symphony</h1>
+            <h5 >Music is the answer</h5>
         </div>
         
-        <div style="position: absolute;background-color: #85A8F6; 
-             width: 200px; left: 50px; top: 150px; font-size: 18pt;
-             text-align: center;">
+        <div id="Botonera">
+            <!--Btn inicio-->
+            <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
+                <B>Inicio</B>
+            </div>
             
-            <a href="IniciarSesión.php"><B>Iniciar Sesión</B></a> 
-	
+            <!--Btn Sesión-->
+            <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='IniciarSesión.php'">
+                <B>Iniciar Sesión</B> 
+            </div>
+        
+            <!--Btn Registro-->
+            <div style=" top: 200px; cursor:pointer;" id="RegistrarseBtn" onclick="location.href='Registrarse.php'">
+                <B>Registrarse</B> 
+            </div>
         </div>
         
-        <div style="position: absolute; background-color: #F685BF; 
-             width: 200px; left: 50px; top: 200px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="Registrarse.php"><B>Registrarse</B></a> 
-	
-        </div>
-        <h1 style="font-size: 35pt">Tienda xd</h1>
+        
         <!--//Formulario para registrar nuevo usuario-->
-        <form action="R.php" method="post" style="text-align: center; font-size: 18pt">
+        <form action="R.php" method="post" id="PanelPrincipal">
             Nombre(s): <input type="text" name="nom"> <br> <br>
             Apellidos: <input type="text" name="ap"> <br> <br>
             Fecha de nacimiento:<input type="date" name="fechan"> <br> <br>
@@ -44,7 +42,7 @@ and open the template in the editor.
             Contraseña: <input type="password" name="passUs"> <br> <br>
             Domicilio: <input type="text" name="dom"> <br> <br>
             Teléfono: <input type="text" name="tel"> <br> <br>
-            <input type="submit" value="Enviar">
+            <input type="submit" value="Enviar Datos">
         </form>
         <?php
         // put your code here
