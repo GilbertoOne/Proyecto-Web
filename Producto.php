@@ -10,48 +10,74 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ForoGil</title>
-        <Link rel="stylesheet" href="Estilo.css">
+        <title>Producto</title>
+        <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body>
+    
+    <body id="cuerpo">
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <h1 style="font-size: 35pt">Tienda xd</h1>
         
-        <div style="position: absolute;background-color: #97F267; 
-             width: 200px; left: 50px; top: 100px; font-size: 18pt;
-             text-align: center;">
-             
-            <a href="index.php"><B>Inicio</B></a>
-	
+        <div id="Banner">
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
         </div>
         
-        <div style="position: absolute;background-color: #85A8F6; 
-             width: 200px; left: 50px; top: 150px; font-size: 18pt;
-             text-align: center;">
+        <!--Botonera-->
+        <div id="Botonera">
+        
+            <!--//Botón de inicio-->
+        <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
+                <B>Inicio</B>
+            </div>
+        
+        <!--//Botón de cerrar sesión-->
+        <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
+                <B>Cerrar Sesión</B> 
+            </div>
+ 
+        <!--//Botón de buscar-->
+<!--Slide de busqueda-->
+            <script>
+                $(document).ready(function(){
+                    $("#TextoB").click(function(){
+                        $("#Searcher").slideDown("slow");})
+                })
+            </script>
             
-            <a href="CerrarSesión.php?salir=true"><B>Cerrar Sesión</B></a> 
-	
-        </div>
+            <div style="top: 350px" id="BuscadorProdBtn">
+                <B id="TextoB">Buscador de productos</B>
+                <form action="Buscar.php" method="post" id="Searcher">
+                    <input type="text" name="tema" size="15"> <br>
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
         
-        <div style="position: absolute; background-color: #F685BF; 
-             width: 200px; left: 50px; top: 200px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="AgregarTema.php"><B>Agregar tema</B></a> 
-	
-        </div>
-        <div style="position: absolute; background-color: #D7AB09; 
-             width: 200px; left: 50px; top: 350px; font-size: 18pt;
-             text-align: center;">
+        <div style="position: absolute; width: 200px; left: 50px; top: 40px; font-size: 18pt; text-align: center; color:white;">
             <?php
-            echo "<B>¡Hola! " .$_SESSION['nomUs']."</B>" 
+            echo "<B>¡Hola, " .$_SESSION['nomUs']."!</B>" 
             ?>
         </div>
         
-        <div style="position: absolute; background-color: khaki;
-             left: 300px; top: 100px; text-align: center; font-size: 18pt">
+        <?php
+        if ($_SESSION['status'] == 1){
+                ?>
+                    <div id="AdminUsrBtn" style="cursor:pointer;" onclick="location.href='VerUsuarios.php'">
+                       <B>Administrar Usuarios</B>
+                   </div>
+            
+                    <!--//Botón de agregar producto-->
+                    <div id="AdminProdBtn" style="cursor:pointer;" onclick="location.href='FormAP.php'">
+                        <B>Agregar productos</B>
+                    </div> 
+            <?php
+                }
+            ?>
+        </div>
+        <!--/Botonera-->
+        
+        <div id="PanelPrincipal">
         
         <?php
         $var=$_GET['id'];
@@ -96,7 +122,7 @@ and open the template in the editor.
            if($result1->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row1 = $result1->fetch_assoc()) {
-                    echo "<br><B> - Comentario </B><br><B> De: </B>" . $row1["user_id"] .
+                    echo "<br><B>  Comentario </B><br><B> De: </B>" . $row1["user_id"] .
                            "<br>". $row1["contenido"] . "<br> <B>Fecha: </B>" .$row1["fechac"] . 
                             "<br>";
                     
