@@ -1,49 +1,64 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <?php
     session_start();
 ?>
 <html>
+  
     <head>
         <meta charset="UTF-8">
         <title>Modificar Producto</title>
-        <Link rel="stylesheet" href="Estilo.css">
+        <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body>
+    
+    <body id="cuerpo">
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <h1 style="font-size: 35pt">Tienda xd</h1>
-        
-        <div style="position: absolute;background-color: #97F267; 
-             width: 200px; left: 50px; top: 100px; font-size: 18pt;
-             text-align: center;">
-             
-            <a href="index.php"><B>Inicio</B></a>
-	
+        <div id="Banner">
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
         </div>
         
-        <div style="position: absolute;background-color: #85A8F6; 
-             width: 200px; left: 50px; top: 150px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="CerrarSesión.php?salir=true"><B>Cerrar Sesión</B></a> 
-	
-        </div>
+        <!--Botonera-->
+        <div id="Botonera">
         
-        <div style="position: absolute; background-color: #D7AB09; 
-             width: 200px; left: 50px; top: 350px; font-size: 18pt;
-             text-align: center;">
+            <!--//Botón de inicio-->
+        <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
+                <B>Inicio</B>
+            </div>
+        
+        <!--//Botón de cerrar sesión-->
+        <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
+                <B>Cerrar Sesión</B> 
+            </div>
+ 
+        
+        <div style="position: absolute; width: 200px; left: 50px; top: 40px; font-size: 18pt; text-align: center; color:white;">
             <?php
-            echo "<B>¡Hola! " .$_SESSION['nomUs']."</B>" 
+            echo "<B>¡Hola, " .$_SESSION['nomUs']."!</B>" 
             ?>
         </div>
+        
+        <?php
+        if ($_SESSION['status'] == 1){
+                ?>
+                    <div id="AdminUsrBtn" style="cursor:pointer;" onclick="location.href='VerUsuarios.php'">
+                       <B>Administrar Usuarios</B>
+                   </div>
+            
+                    <!--//Botón de agregar producto-->
+                    <div id="AdminProdBtn" style="cursor:pointer;" onclick="location.href='FormAP.php'">
+                        <B>Agregar productos</B>
+                    </div> 
+            <?php
+                }
+            ?>
+        </div>
+        <!--/Botonera-->
+        <div id="PanelPrincipal">
         <!--//Formulario para agregar tema-->
-        <TABLE CELLSPACING=1 CELLPADDING=2  WIDTH=100%>
+        <TABLE CELLSPACING=1 CELLPADDING=2  WIDTH=100% >
                 <th>
         </th></TABLE><BR>
         <div id="form4">
@@ -71,10 +86,11 @@ and open the template in the editor.
                     <input type="file" name="miArchivo"></td>
                 </tr> 
                 <tr>
-                    <td><input type="submit" value="Enviar"></td>
+                    <td><input type="submit" value="Modificar datos"></td>
                 </tr>
             </table>
         </form>
+            
         </div>
             <div id="botonvolver"><a href="index.php">&nbsp;Volver</a></div>
         
@@ -90,7 +106,8 @@ and open the template in the editor.
         
             <?php
             }
-        ?>
-        
+        ?>  
+            </BR>
+        </div>
     </body>
 </html>
