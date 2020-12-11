@@ -183,10 +183,24 @@
     left: 50px;
     background: rgba(255,255,255,.09);
     
-    
 }
 #AdminProdBtn:hover{
     width: 240px;
     transition: .5s;
     background: rgba(255, 133, 102,.5);
 }
+#EstiloBotones {
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    background: rgba(255,255,255,.09);
+    
+    
+}
+#EstiloBotones:hover{
+    width: 210px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);

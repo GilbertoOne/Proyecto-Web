@@ -107,8 +107,13 @@
             
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-            <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
-
+            <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                Comentarios
+                
+            </div>
+            <br>
+            <br>
+            <br>
             <br>
             
         <?php
@@ -195,11 +200,14 @@
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
 
-            <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
-
+            <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                Comentarios
+                
+            </div>
             <br>
-            
-                    <?php
+            <br>
+            <br>
+            <br>                    <?php
                 }
             } else {
                 echo "No hay productos aún en la tienda";

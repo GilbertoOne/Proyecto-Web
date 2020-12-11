@@ -7,9 +7,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ForoGil</title>
-          <link rel="stylesheet" type="text/css" href="Estilo.css">
-        
+        <title>Busqueda de producto</title>
+        <link rel="stylesheet" type="text/css" href="Estilo.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
     </head>
     <body id="cuerpo">
         
@@ -104,9 +105,14 @@
                     ?> 
                     <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
                     <br>
-                    <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
-
-                    <br>
+                    <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                Comentarios
+                
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
                     <?php
                 }
             } else {
@@ -123,46 +129,47 @@
             {
         ?>
          
-        <h1 style="font-size: 35pt">Tienda xd</h1>
-        
-        <div style="position: absolute;background-color: #97F267; 
-             width: 200px; left: 50px; top: 100px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="index.php"><B>Inicio</B></a>
-	
+        <!--Banner--> 
+        <div id="Banner">
+            <h1 >Symphony</h1>
+            <h5 >Music is the answer</h5>
         </div>
         
-        <div style="position: absolute;background-color: #85A8F6; 
-             width: 200px; left: 50px; top: 150px; font-size: 18pt;
-             text-align: center;">
+        <!--Botonera-->
+        <div id="Botonera">
+            <!--Btn inicio-->
+            <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
+                <B>Inicio</B>
+            </div>
             
-            <a href="IniciarSesión.php"><B>Iniciar Sesión</B></a> 
-	
+            <!--Btn Sesión-->
+            <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='IniciarSesión.php'">
+                <B>Iniciar Sesión</B> 
+            </div>
+        
+            <!--Btn Registro-->
+            <div style=" top: 200px; cursor:pointer;" id="RegistrarseBtn" onclick="location.href='Registrarse.php'">
+                <B>Registrarse</B> 
+            </div>
+            
+            <!--Slide de busqueda-->
+            <script>
+                $(document).ready(function(){
+                    $("#TextoB").click(function(){
+                        $("#Searcher").slideDown("slow");})
+                })
+            </script>
+            
+            <div style="top: 350px" id="BuscadorProdBtn">
+                <B id="TextoB">Buscador de productos</B>
+                <form action="Buscar.php" method="post" id="Searcher">
+                    <input type="text" name="tema" size="15"> <br>
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
         </div>
         
-        <div style="position: absolute; background-color: #F685BF; 
-             width: 200px; left: 50px; top: 200px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="Registrarse.php"><B>Registrarse</B></a> 
-	
-        </div>
-        
-        <div style="position: absolute; background-color: rgb; 
-             width: 200px; left: 50px; top: 550px; font-size: 18pt;
-             text-align: center;">
-            
-            <B>Buscar tema</B>
-            <form action="Buscar.php" method="post" style="text-align: center;font-size: 18pt">
-            <input type="text" name="tema" size="15"> <br>
-            <input type="submit" value="Enviar">
-            </form>
-	
-        </div>
-        
-        <div style="position: absolute; background-color: khaki;
-             left: 300px; top: 100px; text-align: center; font-size: 18pt">
+        <div id="PanelPrincipal">
         
         <?php
         // put your code here
@@ -192,9 +199,14 @@
                     ?> 
                     <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
                     <br>
-                    <a href="Producto.php?id=<?php echo $row["id_productos"]?>">Comentarios</a><br><br><br>
-
-                    <br>
+                    <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                Comentarios
+                
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
                     <?php
                 }
             } else {

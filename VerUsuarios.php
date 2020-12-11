@@ -84,9 +84,16 @@
                             "<br><B>Status: </B>" . $row["admin"] . "<br> <B>Fecha de nacimiento:</B> " . $row["fechan"] .
                             "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["domicilio"] .
                             "<br>";
-                    echo "<a href=ModificarUsuario.php>Modificar      </a>";
-                    echo "<a href=EnvíoCorreo.php>Enviar Correo      </a>";
-                    echo "<a href=BorrarUsuario.php>     Borrar</a><br><br><br>";
+                    ?>
+            <br>
+            <div style="cursor:pointer; left:200px;" onclick="location.href='ModificarUsuario.php'" id="EstiloBotones">Modificar</div>
+            <div style="cursor:pointer; left:410px;" onclick="location.href='EnvíoCorreo.php'" id="EstiloBotones">Enviar correo</div>
+            <div style="cursor:pointer; left:620px;" onclick="location.href='BorrarUsuario.php'" id="EstiloBotones">Borrar</div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <?php
                 }
             } else {
                 echo "No hay usuarios";
