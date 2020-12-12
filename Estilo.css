@@ -1,31 +1,20 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 6 nov. 2020, 23:50:17
-    Author     : gilbe
-*/
-
 #cuerpo {
     font-family: sans-serif;
     /*background-image: url(Texturas/BG.jpg);*/
     background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
     font-size: 15pt;
-    
-    
+    color: white;
 }
 
-#productos {
-    color: white;
+#PanelPrincipal {
+
     position: absolute;
     visibility: visible;
-    top: 200px;
+    top: 250px;
     left: 300px;
-    width: 1000px;
+    width: 1025px;
     text-align: center;
-    background: rgba(0,0,0,.09);
+    background: rgba(255,255,0,.09);
 }
 
 
@@ -33,7 +22,7 @@ and open the template in the editor.
     position: absolute;
     visibility: visible;
     z-index: 2;
-    top: 100px;
+    top: 150px;
 }
 
 #Banner {
@@ -49,45 +38,63 @@ and open the template in the editor.
 
 /*Botonera*/
 
-#Inicio{
+#InicioBtn{
+    color: white;
     position: absolute;
     visibility: visible;
     text-align: center;
     width: 200px;
+    height: 50px;
     top: 100px;
     left: 50px;
+    background: rgba(255,255,255,.09);
+    
+    
 }
-#Inicio:hover{
-    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+#InicioBtn:hover{
+    width: 240px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);
 }
 
 
-#InicioSesion{
+#InicioSesionBtn{
+    color: white;
     position: absolute;
     visibility: visible;
     text-align: center;
     width: 200px;
+    height: 50px;
     top: 100px;
     left: 50px;
+    background: rgba(255,255,255,.09);
 }
-#InicioSesion:hover{
-    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+#InicioSesionBtn:hover{
+    width: 240px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);
 }
 
-#Registrarse{
+#RegistrarseBtn{
+    color: white;
     position: absolute;
     visibility: visible;
     text-align: center;
     width: 200px;
+    height: 50px;
     top: 100px;
     left: 50px;
+    background: rgba(255,255,255,.09);
 }
 
-#Registrarse:hover{
-    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+
+#RegistrarseBtn:hover{
+    width: 240px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);
 }
 
-#BuscadorProd{
+#BuscadorProdBtn{
     color: white;
     position: absolute;
     visibility: visible;
@@ -95,7 +102,105 @@ and open the template in the editor.
     width: 200px;
     top: 100px;
     left: 50px;
+    background: rgba(255,255,255,.09);
 }
-#BuscadorProd:hover{
-    background-image: linear-gradient(180rad,  #27cce0, #d77872, #b635ab);
+#BuscadorProdBtn:hover{
+    width: 224px;
+    transition: .5s;
+    background: rgba(0, 128, 128,.5);
 }
+#Searcher {
+    padding: 20px;
+    display: none;
+}
+
+#UnderBannerButtons {
+    
+}
+
+#AlbumsBtn {
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 300px;
+    height: 60px;
+    top: 165px;
+    left: 300px;
+    background: rgba(255,255,255,.09);
+}
+
+#AlbumsBtn:hover{
+    height: 80px;
+    transition: .5s;
+    background: rgba(153, 0, 51,.5);
+}
+
+#InstrumentBtn {
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 300px;
+    height: 60px;
+    top: 165px;
+    left: 1025px;
+    background: rgba(255,255,255,.09);
+    
+}
+#InstrumentBtn:hover{
+    height: 80px;
+    transition: .5s;
+    background: rgba(51, 51, 153,.5);
+}
+#AdminUsrBtn{
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    top: 250px;
+    left: 50px;
+    background: rgba(255,255,255,.09);
+    
+    
+}
+#AdminUsrBtn:hover{
+    width: 240px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);
+}
+
+#AdminProdBtn{
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    top: 200px;
+    left: 50px;
+    background: rgba(255,255,255,.09);
+    
+}
+#AdminProdBtn:hover{
+    width: 240px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);
+}
+#EstiloBotones {
+    color: white;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    background: rgba(255,255,255,.09);
+    
+    
+}
+#EstiloBotones:hover{
+    width: 210px;
+    transition: .5s;
+    background: rgba(255, 133, 102,.5);

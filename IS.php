@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <?php
     session_start();
 ?>
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Inicio de Sesión</title>
-        <Link rel="stylesheet" href="Estilo.css">
+        <link rel="stylesheet" type="text/css" href="Estilo.css">   
     </head>
-    <body style="text-align: center; font-size: 18pt">
-        <h1 style="font-size: 35pt">Tienda xd</h1>
+    
+    <body id="cuerpo">
+        
+        <!--Banner--> 
+        <div id="Banner">
+            <h1 >Symphony</h1>
+            <h5 >Music is the answer</h5>
+        </div>
+        
         <?php
         include ("ConexiónBD.php");
             $conexion = conectar();
@@ -35,13 +39,17 @@ and open the template in the editor.
                     $resultado = $conexion->query($sql);
                     if(!$resultado)
                     {
+                        echo "<div id='PanelPrincipal'>";
                         echo 'Ocurrió un error, intenta nuevamente';
+                        echo "</div>";
                     }
                     else
                     {
                         if($resultado->num_rows == 0)
                         {
+                            echo "<div id='PanelPrincipal'>";
                             echo 'Usuario o contraseña incorrecta, intenta nuevamente';
+                            echo "</div>";
                         }
                         else
                         {
@@ -51,8 +59,9 @@ and open the template in the editor.
                            $_SESSION['idusuario']=$row["user_id"];
                            $_SESSION['nomUs'] = $row["nombre"];
                            $_SESSION['status'] = $row["admin"];
-                           echo 'Bienvenido, ' . $_SESSION['nomUs'] . '. <a href="index.php">Regresar a inicio</a>.';
-                                
+                            echo "<div id='PanelPrincipal'>";
+                           echo 'Bienvenido, ' . $_SESSION['nomUs'] . '.<br> <a href="index.php">Regresar a inicio</a>';
+                            echo "</div>";
                         }
                     }
                 }

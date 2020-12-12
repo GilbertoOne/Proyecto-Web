@@ -1,49 +1,64 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <?php
     session_start();
 ?>
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Administrar Usuarios</title>
-        <Link rel="stylesheet" href="Estilo.css">
+        <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body style="text-align: center">
+    
+    <body id="cuerpo">
         <?php
             if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
         ?>
-        <h1 style="font-size: 35pt">Tienda xd</h1>
-        
-        <div style="position: absolute;background-color: #97F267; 
-             width: 200px; left: 50px; top: 100px; font-size: 18pt;
-             text-align: center;">
-             
-            <a href="index.php"><B>Inicio</B></a>
-	
+        <!--Banner--> 
+        <div id="Banner">
+            <h1 >Symphony</h1>
+            <h5 >Music is the answer</h5>
         </div>
         
-        <div style="position: absolute;background-color: #85A8F6; 
-             width: 200px; left: 50px; top: 150px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="CerrarSesión.php?salir=true"><B>Cerrar Sesión</B></a> 
-	
-        </div>
+       <!--Botonera-->
+        <div id="Botonera">
         
-        <div style="position: absolute; background-color: #D7AB09; 
-             width: 200px; left: 50px; top: 350px; font-size: 18pt;
-             text-align: center;">
+            <!--//Botón de inicio-->
+        <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
+                <B>Inicio</B>
+            </div>
+        
+        <!--//Botón de cerrar sesión-->
+        <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
+                <B>Cerrar Sesión</B> 
+            </div>
+ 
+        
+        <div style="position: absolute; width: 200px; left: 50px; top: 40px; font-size: 18pt; text-align: center; color:white;">
             <?php
-            echo "<B>¡Hola! " .$_SESSION['nomUs']."</B>" 
+            echo "<B>¡Hola, " .$_SESSION['nomUs']."!</B>" 
             ?>
         </div>
         
+        <?php
+        if ($_SESSION['status'] == 1){
+                ?>
+                    <div id="AdminUsrBtn" style="cursor:pointer;" onclick="location.href='VerUsuarios.php'">
+                       <B>Administrar Usuarios</B>
+                   </div>
+            
+                    <!--//Botón de agregar producto-->
+                    <div id="AdminProdBtn" style="cursor:pointer;" onclick="location.href='FormAP.php'">
+                        <B>Agregar productos</B>
+                    </div> 
+            <?php
+                }
+            ?>
+        </div>
+        <!--/Botonera-->
         
+        <div id="PanelPrincipal">
         <?php
         
         include ("ConexiónBD.php");
@@ -69,9 +84,16 @@ and open the template in the editor.
                             "<br><B>Status: </B>" . $row["admin"] . "<br> <B>Fecha de nacimiento:</B> " . $row["fechan"] .
                             "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["domicilio"] .
                             "<br>";
-                    echo "<a href=ModificarUsuario.php>Modificar      </a>";
-                    echo "<a href=EnvíoCorreo.php>Enviar Correo      </a>";
-                    echo "<a href=BorrarUsuario.php>     Borrar</a><br><br><br>";
+                    ?>
+            <br>
+            <div style="cursor:pointer; left:200px;" onclick="location.href='ModificarUsuario.php'" id="EstiloBotones">Modificar</div>
+            <div style="cursor:pointer; left:410px;" onclick="location.href='EnvíoCorreo.php'" id="EstiloBotones">Enviar correo</div>
+            <div style="cursor:pointer; left:620px;" onclick="location.href='BorrarUsuario.php'" id="EstiloBotones">Borrar</div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <?php
                 }
             } else {
                 echo "No hay usuarios";
@@ -94,6 +116,6 @@ and open the template in the editor.
             <?php
             }
         ?>
-        
+        </div>
     </body>
 </html>
