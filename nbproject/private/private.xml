@@ -4,26 +4,25 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Buscar.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/BorrarComentario.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/IniciarSesión.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Registrarse.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/IS.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/MP.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/view.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ModificarProducto.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/R.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/README.md</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Estilo.css</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/CerrarSesión.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/AgregarProducto.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/FormAP.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ModificarUsuario.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Producto.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/index.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/AC.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/VerUsuarios.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ConexiónBD.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/MU.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/BorrarProducto.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/AT.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/AgregarTema.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/EnvíoCorreo.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/BorrarUsuario.php</file>
         </group>
     </open-files>

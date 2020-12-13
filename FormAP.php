@@ -9,7 +9,10 @@
         <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
     
-    <body id="cuerpo">    
+    <body id="cuerpo">
+        <?php
+            if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
+        ?>
         <div id="Banner">
             <h1>Symphony</h1>
             <h5>Music is the answer</h5>
@@ -102,5 +105,17 @@
         </div>
             </BR>
         </div>
+        <?php
+            }
+            else
+            {
+        ?>
+        
+        <p>Ocurrió un error en el inicio de sesión. Regresaras a la página de inicio</p>
+        <a href="index.php">Inicio</a>
+        
+            <?php
+            }
+        ?>
     </body>
 </html>

@@ -4,12 +4,18 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+    session_start();
+?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Correo</title>
     </head>
     <body>
+        <?php
+            if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
+        ?>
         <?php
         // put your code here
         $para      = 'pgilberto484@gmail.com';
@@ -42,6 +48,19 @@ and open the template in the editor.
            {
         echo "Correo enviado satisfactoriamente";
         }
+        ?>
+        
+        <?php
+            }
+            else
+            {
+        ?>
+        
+        <p>Ocurrió un error en el inicio de sesión. Regresaras a la página de inicio</p>
+        <a href="index.php">Inicio</a>
+        
+            <?php
+            }
         ?>
     </body>
 </html>

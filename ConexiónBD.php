@@ -9,8 +9,8 @@ function conectar(){
         //Parametros de conexión
         $servername = "localhost";
         $database = "tienda";
-        $username = "root";
-        $password = "maflUAA2018";
+        $username = "Gilberto";
+        $password = "Claro";
 
         // Crear la conexion
         $conn = mysqli_connect($servername, $username, $password, $database);
@@ -35,6 +35,10 @@ function fObtenerMime($wfParamCadena){//creamos una funciÃ³n que recibira un p
     if  ($fsExtension =='jpg' || $fsExtension =='JPG' ){ $mime ='image/jpg'; }
     if  ($fsExtension =='png' || $fsExtension=='PNG'){ $mime = 'image/png'; }    
     return $mime;//en base a su extenxiÃ³n la function retornara un tipo de mime 
+}
+
+function formatearfecha($fecha){
+    return date('g: i a', strtotime($fecha));
 }
 ?>
 

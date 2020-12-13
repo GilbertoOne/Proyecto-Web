@@ -78,6 +78,8 @@
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row = $result->fetch_assoc()) {
                     $_SESSION['aux']=$row["user_id"];
+                    $_SESSION['auxidcliente']=$row["user_id"];
+                    $_SESSION['auxnomcliente']=$row["nombre"];
                     echo "<B>Id usuario</B> ". $row["user_id"] . "<br><B> Email: </B>" .
                             $row["email"] . "<br><B> Contraseña</B> <br>" . $row["password"] . 
                             "<br> <B>Nombre: </B>" .$row["nombre"] . "<br> <B>Apellidos:</B> " . $row["apellido"] .
@@ -86,9 +88,11 @@
                             "<br>";
                     ?>
             <br>
-            <div style="cursor:pointer; left:200px;" onclick="location.href='ModificarUsuario.php'" id="EstiloBotones">Modificar</div>
-            <div style="cursor:pointer; left:410px;" onclick="location.href='EnvíoCorreo.php'" id="EstiloBotones">Enviar correo</div>
-            <div style="cursor:pointer; left:620px;" onclick="location.href='BorrarUsuario.php'" id="EstiloBotones">Borrar</div>
+            <div style="cursor:pointer; left:100px;" onclick="location.href='ModificarUsuario.php'" id="EstiloBotones">Modificar</div>
+            <div style="cursor:pointer; left:310px;" onclick="location.href='EnvíoCorreo.php'" id="EstiloBotones">Enviar correo</div>
+            <div style="cursor:pointer; left:520px;" onclick="location.href='Chat.php'" id="EstiloBotones">Chat</div>
+            <div style="cursor:pointer; left:630px;" onclick="location.href=''" id="EstiloBotones">Avisos</div>
+            <div style="cursor:pointer; left:740px;" onclick="location.href='BorrarUsuario.php'" id="EstiloBotones">Borrar</div>
             <br>
             <br>
             <br>
