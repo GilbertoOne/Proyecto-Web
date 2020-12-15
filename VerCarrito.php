@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 
 <?php
     session_start();
@@ -7,21 +6,26 @@
     
     <head>
         <meta charset="UTF-8">
-        <title>Administrar Usuarios</title>
+        <title>Symphony</title>
         <link rel="stylesheet" type="text/css" href="Estilo.css">
+        
+        <!--Para botones deslizantes-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
     </head>
     
     <body id="cuerpo">
+        <!--//Autentificación-->
+        
         <?php
-            if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
+            if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <!--Banner--> 
         <div id="Banner">
-            <h1 >Symphony</h1>
-            <h5 >Music is the answer</h5>
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
         </div>
         
-       <!--Botonera-->
+        <!--Botonera-->
         <div id="Botonera">
         
             <!--//Botón de inicio-->
@@ -33,7 +37,6 @@
         <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
                 <B>Cerrar Sesión</B> 
             </div>
- 
         
         <div style="position: absolute; width: 200px; left: 50px; top: 40px; font-size: 18pt; text-align: center; color:white;">
             <?php
@@ -59,66 +62,75 @@
         <!--/Botonera-->
         
         <div id="PanelPrincipal">
-        <?php
         
+        <?php
         include ("ConexiónBD.php");
             $conexion = conectar();
             
             if(!$conexion){
                 echo "ERROR";
-            }else{
-                
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM users";
+            $total=0;
             
+            $sql1 = "SELECT * FROM carrito";
+            $resul = $conexion->query($sql1);
+            if($resul->num_rows > 0) {
+                while($rowx = $resul->fetch_assoc()) {
+                    echo "<br><B> Cantidad: </B>" . $rowx["cantidad"] . "<br>";
+            
+            $sql = "SELECT * FROM productos WHERE id_productos = " .$rowx["id_productos"];
             $result = $conexion->query($sql);
             
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
+                
                 while($row = $result->fetch_assoc()) {
-                    $_SESSION['aux']=$row["user_id"];
-                    $_SESSION['auxidcliente']=$row["user_id"];
-                    $_SESSION['auxnomcliente']=$row["nombre"];
-                    echo "<B>Id usuario</B> ". $row["user_id"] . "<br><B> Email: </B>" .
-                            $row["email"] . "<br><B> Contraseña</B> <br>" . $row["password"] . 
-                            "<br> <B>Nombre: </B>" .$row["nombre"] . "<br> <B>Apellidos:</B> " . $row["apellido"] .
-                            "<br><B>Status: </B>" . $row["admin"] . "<br> <B>Fecha de nacimiento:</B> " . $row["fechan"] .
-                            "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["domicilio"] .
-                            "<br><B>Gustos: </B>" . $row["gustos"] ."";
-                    ?>
-            <br>
-            <div style="cursor:pointer; left:100px;" onclick="location.href='ModificarUsuario.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Modificar</div>
-            <div style="cursor:pointer; left:310px;" onclick="location.href='BorrarUsuario.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Borrar</div>
-            <div style="cursor:pointer; left:520px;" onclick="location.href='ChAdmin.php?id=<?php echo $row["user_id"]?>&nom=<?php echo $row["nombre"]?>'" id="EstiloBotones">Chat</div>
-            <div style="cursor:pointer; left:630px;" onclick="location.href='Avisos.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Avisos</div>
+                    
+                    $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
+                    $imagen = $result1->fetch_assoc();
+                    $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
+                    $total += $row["precio"]*$rowx["cantidad"];
+        ?>
+            
+            <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
             <br>
             <br>
             <br>
+            <br>
+            
+        <?php
+            }} }
+            
+            echo "<br><B> Total: $total";
+            ?>
+            <div style="cursor:pointer; left:300px; " onclick="location.href='EnvíoCorreo.php'" id="EstiloBotones">
+                    Comprar
+            </div>
             <?php
-                }
-            } else {
-                echo "No hay usuarios";
-            }
-            
-            
+                } 
+            else {
+                echo "No hay productos aún en el carrito";
+            }    
             mysqli_close($conexion);
         ?>
+        </div>
+        
         
         <?php
-        // put your code here
-        }
+            }
             else
             {
         ?>
-        
         <p>Ocurrió un error en el inicio de sesión. Regresaras a la página de inicio</p>
         <a href="index.php">Inicio</a>
         
-            <?php
+        <?php
             }
-        ?>
-        </div>
+        ?> 
     </body>
 </html>

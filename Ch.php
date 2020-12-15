@@ -11,6 +11,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
     <body>
         <?php
@@ -30,9 +31,11 @@ and open the template in the editor.
                         if ($_SESSION['status'] == 1){
                         //$idcliente = 5;
                         //$nomcliente = 'Juanito';
+                        //echo $_SESSION['auxnomcliente'];
+                        //echo $_SESSION['auxidcliente'];
                         $idcliente = $_SESSION['auxidcliente'];
                         $nomcliente = $_SESSION['auxnomcliente'];
-                        $sql = "SELECT * FROM chat  WHERE user_id = $idcliente OR aux = 1 ORDER BY fecha ASC";
+                        $sql = "SELECT * FROM chat  WHERE user_id = $idcliente ORDER BY fecha ASC";
                         $result = $conexion->query($sql);
                         while ($fila = $result->fetch_array()):
                     ?>
@@ -50,7 +53,7 @@ and open the template in the editor.
                         }
                         else{
                         $id = $_SESSION['idusuario'];
-                        $sql = "SELECT * FROM chat  WHERE user_id = $id OR aux = 1 ORDER BY fecha ASC";
+                        $sql = "SELECT * FROM chat  WHERE user_id = $id ORDER BY fecha ASC";
                         $result = $conexion->query($sql);
                         while ($fila = $result->fetch_array()):
                     ?>

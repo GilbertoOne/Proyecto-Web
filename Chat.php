@@ -6,6 +6,7 @@ and open the template in the editor.
 -->
 <?php
     session_start();
+    //$var=$_GET['id'];
 ?>
 <html>
     <head>
@@ -49,12 +50,14 @@ and open the template in the editor.
                 if (isset($_POST['enviar'])){
                     if ($_SESSION['status'] == 1){
                     $nombre = $_SESSION['nomUs'];
-                    $id = $_SESSION['idusuario'];
+                    //$id = $_GET['user_id'];
+                    $var=$_GET['id'];
+                    $id = $_SESSION['auxidcliente'];
                     $mensaje = $_POST['mensaje'];
-                    $sql = "INSERT INTO chat (user_id, mensaje, aux) VALUES ('$id', '$mensaje', 1)";
+                    $sql = "INSERT INTO chat (user_id, mensaje, aux) VALUES ('$var', '$mensaje', 1)";
                     $result = $conexion->query($sql);
                     }else{
-                        $nombre = $_SESSION['nomUs'];
+                    $nombre = $_SESSION['nomUs'];
                     $id = $_SESSION['idusuario'];
                     $mensaje = $_POST['mensaje'];
                     $sql = "INSERT INTO chat (user_id, mensaje) VALUES ('$id', '$mensaje')";

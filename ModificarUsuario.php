@@ -2,6 +2,8 @@
 
 <?php
     session_start();
+    $var=$_GET['id'];
+    $_SESSION['auxidcliente'] = $var;
 ?>
 <html>
     
@@ -59,7 +61,7 @@
         <!--/Botonera-->
         
         <!--//Formulario para modificar un usuario-->
-        <form action="MU.php" method="post" id="PanelPrincipal">
+        <form action="MU.php?id=<?php echo $var ?>" method="post" id="PanelPrincipal">
             Nombre(s): <input type="text" name="nom"> <br> <br>
             Apellidos: <input type="text" name="ap"> <br> <br>
             Fecha de nacimiento:<input type="date" name="fechan"> <br> <br>

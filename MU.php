@@ -2,6 +2,8 @@
 
 <?php
     session_start();
+    $var=$_GET['id'];
+    $_SESSION['auxidcliente'] = $var;
 ?>
 <html>
     <head>
@@ -62,7 +64,7 @@
         $nomUs=$_POST['nomUs'];
         $pass=$_POST['passUs'];
         $status=$_POST['status'];
-        $idusu=$_SESSION['aux'];
+        $idusu=$_SESSION['auxidcliente'];
         $dom=$_POST['dom'];
         $tel=$_POST['tel'];
         $fn=$_POST['fechan'];

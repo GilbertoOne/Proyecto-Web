@@ -32,12 +32,29 @@
             <!--//Botón de inicio-->
         <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
                 <B>Inicio</B>
-            </div>
+        </div> 
+            
+        <div style="cursor:pointer;" onclick="location.href='VerCarrito.php'" id="CarritoBtn">
+                <B>Carrito</B>
+        </div> 
         
         <!--//Botón de cerrar sesión-->
         <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
                 <B>Cerrar Sesión</B> 
             </div>
+        <?php
+        if ($_SESSION['status'] != 1){
+                ?>
+        <div style="top: 250px; cursor:pointer;" onclick="location.href='Chat.php'" id="Chatbtn">
+                <B>Chat</B>
+            </div>  
+        
+        <div style="top: 250px; cursor:pointer;" onclick="location.href='AvisosUsu.php'" id="Avbtn">
+                <B>Avisos</B>
+            </div>
+        <?php
+                }
+            ?>
  
         <!--//Botón de buscar-->
 <!--Slide de busqueda-->
@@ -107,10 +124,14 @@
             
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-            <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+            <div style="cursor:pointer; left:300px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
                 Comentarios
-                
             </div>
+            
+            <div style="cursor:pointer; left:520px; " onclick="location.href='AgregarCarrito.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                Agregar al carrito
+            </div>
+            
             <br>
             <br>
             <br>
@@ -202,8 +223,8 @@
 
             <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
                 Comentarios
-                
             </div>
+            
             <br>
             <br>
             <br>
@@ -221,12 +242,12 @@
         </div>
         
         <!--BotoneraProductos-->
-<!--Gil: Agregar el nombre de la página de los productos que funciona para albumes e instrumentos. Sustituye las xXx. Grasias -->        
+<!--Gil: Agregar el nombre de la página de los productos que funciona para albumes e instrumentos. Sustituye las xXx. Gracias -->        
         <div id="UnderBannerButtons">
-            <div id="AlbumsBtn"   style="cursor:pointer;" onclick="location.href='xXx.php'">
+            <div id="AlbumsBtn"   style="cursor:pointer;" onclick="location.href='Albums.php'">
                 <b>Albums</b>
             </div>
-            <div id="InstrumentBtn"   style="cursor:pointer;" onclick="location.href='xXx.php'">
+            <div id="InstrumentBtn"   style="cursor:pointer;" onclick="location.href='Instrumentos.php'">
                 <b>Instrumentos</b>
             </div>
         </div>

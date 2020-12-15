@@ -11,16 +11,17 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Correo</title>
+        <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
     <body>
         <?php
-            if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
+            if(@$_SESSION['autentificado']==TRUE){
         ?>
         <?php
         // put your code here
-        $para      = 'pgilberto484@gmail.com';
-        $asunto    = 'Correo de prueba';
-        $descripcion   = 'Este es el cuerpo del correo'
+        $para      = 'symphonymg2000@gmail.com';
+        $asunto    = 'Compra realizada';
+        $descripcion   = 'Se realizó una compra'
                 . '<html>
                     <head>
                       <title>Recordatorio de cumpleaños para Agosto</title>
@@ -46,7 +47,11 @@ and open the template in the editor.
         
         if (mail($para, $asunto, $descripcion, $de))
            {
-        echo "Correo enviado satisfactoriamente";
+        echo "Compra realizada con éxito";
+        include ("ConexiónBD.php");
+            $conexion = conectar();
+            $sql = "DELETE from carrito";
+            $result = $conexion->query($sql);
         }
         ?>
         

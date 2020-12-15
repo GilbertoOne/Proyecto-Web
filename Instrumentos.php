@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <?php
     session_start();
 ?>
@@ -11,16 +7,20 @@ and open the template in the editor.
     
     <head>
         <meta charset="UTF-8">
-        <title>Producto</title>
+        <title>Symphony</title>
         <link rel="stylesheet" type="text/css" href="Estilo.css">
+        
+        <!--Para botones deslizantes-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
     </head>
     
     <body id="cuerpo">
-        <!--Loggeado-->
+        <!--//Autentificación-->
+        
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-        
         <div id="Banner">
             <h1>Symphony</h1>
             <h5>Music is the answer</h5>
@@ -32,12 +32,25 @@ and open the template in the editor.
             <!--//Botón de inicio-->
         <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
                 <B>Inicio</B>
-            </div>
+        </div> 
+            
+        <div style="cursor:pointer;" onclick="location.href='VerCarrito.php'" id="CarritoBtn">
+                <B>Carrito</B>
+        </div> 
         
         <!--//Botón de cerrar sesión-->
         <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
                 <B>Cerrar Sesión</B> 
             </div>
+        <?php
+        if ($_SESSION['status'] != 1){
+                ?>
+        <div style="top: 250px; cursor:pointer;" onclick="location.href='Chat.php'" id="Chatbtn">
+                <B>Chat</B>
+            </div>  
+        <?php
+                }
+            ?>
  
         <!--//Botón de buscar-->
 <!--Slide de busqueda-->
@@ -82,89 +95,62 @@ and open the template in the editor.
         <div id="PanelPrincipal">
         
         <?php
-        $var=$_GET['id'];
-        $_SESSION['aux']=$var;
         include ("ConexiónBD.php");
             $conexion = conectar();
             
             if(!$conexion){
                 echo "ERROR";
-            }else{
-                //echo "Conn ok<BR>";
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM productos WHERE id_productos =  $var";
-            $sql1 = "SELECT * FROM comentarios WHERE id_productos =  $var";
+            $sql = "SELECT * FROM productos WHERE categoria = 'Instrumentos'";
             $result = $conexion->query($sql);
-            $result1 = $conexion->query($sql1);
-            
             
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
+                
                 while($row = $result->fetch_assoc()) {
-                    $result2 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
-                    $imagen = $result2->fetch_assoc();
+                    
+                    $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
+                    $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
-                    ?> 
-                <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
-                <br>
-                    <div style="cursor:pointer; left:300px; " onclick="location.href='AgregarCarrito.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
-                    Agregar al carrito
-                    </div>
-                <?php
-                
-                $idusu=$_SESSION['idusuario'];
-                $cat = $row["categoria"];
-                echo $idusu;
-                 $sqlgus = "UPDATE users SET gustos = '$cat' WHERE user_id = '$idusu'"; 
-                 $resultgus = $conexion->query($sqlgus);
-                
-                
-                    $_SESSION['auxprecio']=$row["precio"];
-                    if ($_SESSION['status']==1){
-                        echo "<a href=BorrarProducto.php><B>Borrar</B></a><br>";
-                        $_SESSION['auxpro']=$row["id_productos"];
-                        echo "<a href=ModificarProducto.php><B>Modificar</B></a><br><br><br>";
-                    }
+        ?>
+            
+            <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
+            <br>
+            <div style="cursor:pointer; left:300px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                Comentarios
+            </div>
+            
+            <div style="cursor:pointer; left:520px; " onclick="location.href='AgregarCarrito.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                Agregar al carrito
+            </div>
+            
+            <br>
+            <br>
+            <br>
+            <br>
+            
+        <?php
                 }
             } else {
                 echo "No hay productos aún en la tienda";
-            }
-            
-           if($result1->num_rows > 0) {
-                //Recorremos cada registro y obtenemos los valores de las columnas especificadas
-                while($row1 = $result1->fetch_assoc()) {
-                    echo "<br><B>  Comentario </B><br><B> De: </B>" . $row1["user_id"] .
-                           "<br>". $row1["contenido"] . "<br> <B>Fecha: </B>" .$row1["fechac"] . 
-                            "<br>";
-                    
-                    if ($_SESSION['status']==1){
-                        $_SESSION['auxcom']=$row1["id_comentario"];
-                        echo "<a href=BorrarComentario.php><B>Borrar</B></a><br>";
-                    }
-                }
-            } else {
-                echo "No hay comentarios";
-            }
-            
+            }    
             mysqli_close($conexion);
         ?>
-                <form action="AC.php" method="post" style="text-align: center">
-                Comentar: <br><br><textarea name="respuesta" cols="75" rows="5"></textarea> <br> <br>
-                <input type="submit" value="Enviar">
-            </form>
+        </div>
+        
         <?php
             }
             else
             {
         ?>
-         
+        <!--Banner--> 
         <div id="Banner">
-            <h1>Symphony</h1>
-            <h5>Music is the answer</h5>
+            <h1 >Symphony</h1>
+            <h5 >Music is the answer</h5>
         </div>
         
         <!--Botonera-->
@@ -200,68 +186,67 @@ and open the template in the editor.
                 </form>
             </div>
         </div>
-        
-        <div id="PanelPrincipal">
+        <!--Productos-->
+        <div id="PanelPrincipal" >
         
         <?php
-        // put your code here
-         $var=$_GET['id'];
-        $_SESSION['aux']=$var;
         include ("ConexiónBD.php");
             $conexion = conectar();
             
             if(!$conexion){
                 echo "ERROR";
             }else{
-                //echo "Conn ok<BR>";
+                
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM productos WHERE id_productos =  $var";
-            $sql1 = "SELECT * FROM comentarios WHERE id_productos =  $var";
+            $sql = "SELECT * FROM productos WHERE categoria = 'Instrumentos'";
             $result = $conexion->query($sql);
-            $result1 = $conexion->query($sql1);
             
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
+                
                 while($row = $result->fetch_assoc()) {
-                    $result2 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
-                    $imagen = $result2->fetch_assoc();
+                    
+                    $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
+                    $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
                          "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
-                    ?> 
-                <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
-                <br><?php
-                    
+                ?> 
+            <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
+            <br>
+
+            <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                Comentarios
+            </div>
+            
+            <br>
+            <br>
+            <br>
+            <br>                    <?php
                 }
             } else {
                 echo "No hay productos aún en la tienda";
             }
             
-           if($result1->num_rows > 0) {
-                //Recorremos cada registro y obtenemos los valores de las columnas especificadas
-                while($row1 = $result1->fetch_assoc()) {
-                    echo "<br><B> - Comentario </B><br><B> De: </B>" . $row1["user_id"] .
-                           "<br>". $row1["contenido"] . "<br> <B>Fecha: </B>" .$row1["fechac"] . 
-                            "<br>";
-                    
-                    
-                }
-            } else {
-                echo "No hay comentarios";
-            }
-            
             mysqli_close($conexion);
-        ?>
-            
+        ?>  
         <?php
             }
-        ?>
+        ?> 
+        </div>
+        
+        <!--BotoneraProductos-->
+<!--Gil: Agregar el nombre de la página de los productos que funciona para albumes e instrumentos. Sustituye las xXx. Gracias -->        
+        <div id="UnderBannerButtons">
+            <div id="AlbumsBtn"   style="cursor:pointer;" onclick="location.href='Albums.php'">
+                <b>Albums</b>
             </div>
-        </div>   
-        
-        <!--No loggeado-->
-        
+            <div id="InstrumentBtn"   style="cursor:pointer;" onclick="location.href='Instrumentos.php'">
+                <b>Instrumentos</b>
+            </div>
+        </div>
     </body>
+
 </html>

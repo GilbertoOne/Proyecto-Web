@@ -6,6 +6,8 @@ and open the template in the editor.
 -->
 <?php
     session_start();
+    $var=$_GET['id'];
+    $_SESSION['auxidcliente'] = $var;
 ?>
 <html>
     <head>
@@ -72,7 +74,7 @@ and open the template in the editor.
                 
             }
             //Sentencia de consulta SQL para borrar un usuario
-            $aux=$_SESSION['aux'];
+            $aux=$_SESSION['auxidcliente'];
             $sql = "DELETE FROM users WHERE user_id = $aux";
             
             $result = $conexion->query($sql);

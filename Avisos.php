@@ -2,12 +2,14 @@
 
 <?php
     session_start();
+    $var=$_GET['id'];
+    $_SESSION['auxidcliente'] = $var;
 ?>
 <html>
     
     <head>
         <meta charset="UTF-8">
-        <title>Administrar Usuarios</title>
+        <title>Avisos</title>
         <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
     
@@ -70,7 +72,8 @@
                 
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM users";
+            $id = $_SESSION['auxidcliente'];
+            $sql = "SELECT * FROM users WHERE user_id = $id";
             
             $result = $conexion->query($sql);
             
@@ -85,13 +88,35 @@
                             "<br> <B>Nombre: </B>" .$row["nombre"] . "<br> <B>Apellidos:</B> " . $row["apellido"] .
                             "<br><B>Status: </B>" . $row["admin"] . "<br> <B>Fecha de nacimiento:</B> " . $row["fechan"] .
                             "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["domicilio"] .
-                            "<br><B>Gustos: </B>" . $row["gustos"] ."";
-                    ?>
+                            "<br>";
+                    
+                    
+                    $cat = $row["gustos"];
+                    $sqlpro = "SELECT * FROM productos WHERE categoria = '$cat' ";
+                    $resultpro = $conexion->query($sqlpro);
+            
+            if($resultpro->num_rows > 0) {
+                //Recorremos cada registro y obtenemos los valores de las columnas especificadas
+                
+                while($rowpro = $resultpro->fetch_assoc()) {
+                    
+                    $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$rowpro["id_productos"]);
+                    $imagen = $result1->fetch_assoc();
+                    $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
+                    echo "<br><B> Producto: </B>" . $rowpro["producto"] . "<br><B> Descripción: </B><br>" . $rowpro["descripcion"] . 
+                         "<br> <B>Categoría: </B>" .$rowpro["categoria"] . "<br> <B>Precio: </B>" . $rowpro["precio"] . "<br>" .
+                         "<B>Fecha: </B>" .$rowpro["fechap"] . "<br><br>";
+                ?> 
+            <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-            <div style="cursor:pointer; left:100px;" onclick="location.href='ModificarUsuario.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Modificar</div>
-            <div style="cursor:pointer; left:310px;" onclick="location.href='BorrarUsuario.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Borrar</div>
-            <div style="cursor:pointer; left:520px;" onclick="location.href='ChAdmin.php?id=<?php echo $row["user_id"]?>&nom=<?php echo $row["nombre"]?>'" id="EstiloBotones">Chat</div>
-            <div style="cursor:pointer; left:630px;" onclick="location.href='Avisos.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Avisos</div>
+            <div style="cursor:pointer; left:100px;" onclick="location.href='Sugerencia.php?id=<?php echo $rowpro["id_productos"]?>'" id="EstiloBotones">Enviar</div>
+            <?php
+                }
+            } else {
+                echo 'No hay gustos';
+            }
+            ?>
+            <br>
             <br>
             <br>
             <br>
