@@ -18,6 +18,7 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
+        if(@$_SESSION['autentificado']==TRUE){
         include ("ConexiónBD.php");
             $conexion = conectar();
             if(!$conexion){
@@ -35,6 +36,10 @@ and open the template in the editor.
             }
             
             mysqli_close($conexion);
+            }else{
+                echo 'Ocurrió un error en el inicio de sesión. Regresarás a la página de inicio';
+                echo '<a href="index.php">Inicio</a>';
+            }
         ?>
     </body>
 </html>

@@ -54,6 +54,7 @@ and open the template in the editor.
             }else{
                 
             }
+            $resp= mysqli_escape_string($conexion, $resp);
             //Sentencia para agregar una respuesta
             $sql = "INSERT INTO comentarios (id_comentario, user_id, contenido, fechac,id_productos)".
                     "VALUES (null,$idusuario, '$resp', '".date('Y-m-d')."',$idPro)";           

@@ -16,13 +16,6 @@
         </div>
         
         <?php
-        $nom=$_POST['nom'];
-        $ap=$_POST['ap'];
-        $fn=$_POST['fechan'];
-        $nomUs=$_POST['nomUs'];
-        $pass=$_POST['passUs'];
-        $dom=$_POST['dom'];
-        $tel=$_POST['tel'];
         
             include ("ConexiónBD.php");
             $conexion = conectar();
@@ -31,6 +24,19 @@
             }else{
                 
             }
+            $nom=$_POST['nom'];
+            $ap=$_POST['ap'];
+            $ap=mysqli_escape_string($conexion, $ap);
+            $fn=$_POST['fechan'];
+            $fn=mysqli_escape_string($conexion, $fn);
+            $nomUs=$_POST['nomUs'];
+            $nomUs=mysqli_escape_string($conexion, $nomUs);
+            $pass=$_POST['passUs'];
+            $pass=mysqli_escape_string($conexion, $pass);
+            $dom=$_POST['dom'];
+            $dom=mysqli_escape_string($conexion, $dom);
+            $tel=$_POST['tel'];
+            $tel=mysqli_escape_string($conexion, $tel);
             //Sentencia para crear un nuevo usuario
             $sql = "INSERT INTO users ".
                     "VALUES (null,'$nom', sha1('$pass'), '$nomUs', null, '$ap', '$fn', '$tel', '$dom', null)";           

@@ -75,27 +75,27 @@
             ?> </th></TABLE></div><BR>
         <div>
     
-        <form name='form1' method='POST' enctype="multipart/form-data" action='AgregarProducto.php'>
+            <form name='form1' method='POST' enctype="multipart/form-data" action='AgregarProducto.php'>
             <table align='center'  style= "background: rgba(0,0,0,.09);">
                 <tr>
                     <td>Nombre del producto:
-                    <input name='nomp' type='text' id='nomp' size='30' maxlength='50'></td>
+                        <input name='nomp' type='text' id='nomp' size='30' maxlength='50' required></td>
                 </tr>
                 <tr>
                     <td>Descripcion:
-                    <input name='desc' type='text' id='desc' size='30' maxlength='799'></td>
+                        <input name='desc' type='text' id='desc' size='30' maxlength='799' required></td>
                 </tr>
                 <tr>
                     <td>Precio:
-                    <input name='precio' type='text' id='precio' size='30' maxlength='30'></td>
+                        <input name='precio' type='text' id='precio' size='30' maxlength='30' required></td>
                 </tr>
                 <tr>
                     <td>Categoria:
-                    <input name='cat' type='text' id='cat' size='30' maxlength='30'></td>
+                        <input name='cat' type='text' id='cat' size='30' maxlength='30' required></td>
                 </tr>
                 <tr>
                     <td>Imagen: 
-                    <input type="file" name="miArchivo"></td>
+                        <input type="file" name="miArchivo" required></td>
                 </tr> 
                 <tr>
                     <td align="center"><input type="submit" value="Agregar producto"></td>

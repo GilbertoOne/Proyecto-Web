@@ -128,7 +128,7 @@ and open the template in the editor.
                     $_SESSION['auxprecio']=$row["precio"];
                     if ($_SESSION['status']==1){
                         ?>
-                        <div id="EstiloBotones"style="cursor:pointer; left: 200px; top:571px;" onclick="location.href='BorrarProducto.php'"><B>Borrar</B></div>
+                        <div id="EstiloBotones" style="cursor:pointer; left: 200px; top:571px;" onclick="location.href='BorrarProducto.php'"><B>Borrar</B></div>
             <?php
                         $_SESSION['auxpro']=$row["id_productos"];
             ?>
@@ -169,7 +169,7 @@ and open the template in the editor.
             <br>
             <br>
                 <form action="AC.php" method="post" style="text-align: center">
-                Comentar: <br><br><textarea name="respuesta" cols="75" rows="5"></textarea> <br> <br>
+                    Comentar: <br><br><textarea name="respuesta" cols="75" rows="5" required></textarea> <br> <br>
                 <input type="submit" value="Enviar">
             </form>
         <?php

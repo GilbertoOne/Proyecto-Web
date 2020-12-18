@@ -60,13 +60,19 @@
         // Paso de datos para editar usuario
         if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
         $nom=$_POST['nom'];
+        $nom= mysqli_escape_string($conexion, $nom);
         $ap=$_POST['ap'];
+        $ap= mysqli_escape_string($conexion, $ap);
         $nomUs=$_POST['nomUs'];
         $pass=$_POST['passUs'];
+        $pass= mysqli_escape_string($conexion, $pass);
         $status=$_POST['status'];
+        $status= mysqli_escape_string($conexion, $status);
         $idusu=$_SESSION['auxidcliente'];
         $dom=$_POST['dom'];
+        $dom= mysqli_escape_string($conexion, $dom);
         $tel=$_POST['tel'];
+        $tel=mysqli_escape_string($conexion, $tel);
         $fn=$_POST['fechan'];
             include ("ConexiónBD.php");
             $conexion = conectar();

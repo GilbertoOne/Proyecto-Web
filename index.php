@@ -69,7 +69,7 @@
             <div style="top: 350px" id="BuscadorProdBtn">
                 <B id="TextoB">Buscador de productos</B>
                 <form action="Buscar.php" method="post" id="Searcher">
-                    <input type="text" name="tema" size="15"> <br>
+                    <input type="search" name="tema" size="15"> <br>
                     <input type="submit" value="Buscar">
                 </form>
             </div>

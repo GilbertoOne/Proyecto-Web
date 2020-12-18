@@ -102,6 +102,10 @@
             <div style="cursor:pointer; left:300px; " onclick="location.href='BPC.php?id=<?php echo $rowx["id_productos"] ?>'" id="EstiloBotones">
                     Borrar
             </div>
+            <form action="ActualizarCant.php?id=<?php echo $rowx["id_productos"]?>" method="post">    
+                Cambiar cantidad: <input type="number" name="cantidad" min="1" max="10" step="1">
+                <input type="submit" value="Enviar" style="width: 80px; heigth: 20px">
+            </form> 
             <br>
             <br>
             <br>

@@ -35,9 +35,9 @@
         
             <form action="IS.php" method="post" id="PanelPrincipal">  
                 
-                Correo: <input type="text" name="nomUs"> 
+                Correo: <input type="email" name="nomUs" required> 
                 <br> <br>
-                Contraseña: <input type="password" name="passUs" width="20"> <br> <br>
+                Contraseña: <input type="password" name="passUs" required> <br> <br>
                 
             <input type="submit" value="Iniciar sesión">
         </form>

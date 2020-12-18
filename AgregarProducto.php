@@ -18,12 +18,24 @@
              if(!$conexion && isset($_FILES['miArchivo']) && ($_FILES['miArchivo'] !='')){
                 echo "ERROR";
             }else{
+                $descripcion=$_POST['desc'];
+                $descripcion= mysqli_escape_string($conexion, $descripcion);
+                $nompro=$_POST['nomp'];
+                $nompro= mysqli_escape_string($conexion, $nompro);
+                $precio=$_POST['precio'];
+                $precio= mysqli_escape_string($conexion, $precio);
+                $categoria=$_POST['categoria'];
+                $categoria= mysqli_escape_string($conexion, $categoria);
                 #Consulta para insertar una nueva consulta en la tabla de consultas
                 #Con los datos que nos llegaron de la pagina anterior y la fecha como date.
                 $sql="INSERT INTO productos(descripcion,fechap,producto,precio,categoria) "
-                        . "VALUES ('".$_POST['desc']."','".date('Y-m-d')."','"
-                        .$_POST['nomp']."',".$_POST['precio'].",'".$_POST['cat']."')";
-                #Confirmar si la consulta se pudo realzizar de forma correcta
+                        . "VALUES ('$descripcion,'".date('Y-m-d')."','$nompro'
+                        ,'$precio','$categoria'";
+                
+                //$sql="INSERT INTO productos(descripcion,fechap,producto,precio,categoria) "
+                //        . "VALUES ('".$_POST['desc']."','".date('Y-m-d')."','"
+                //        .$_POST['nomp']."',".$_POST['precio'].",'".$_POST['cat']."')";
+                #Confirmar si la consulta se pudo realizar de forma correcta
                 if ($conexion->query($sql) == TRUE) {
                     $sql1="select id_productos from productos where producto='".$_POST['nomp']."'";
                     $result = mysqli_query($conexion, $sql1);

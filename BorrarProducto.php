@@ -51,9 +51,9 @@ and open the template in the editor.
             }
             //Sentencia de consulta SQL para borrar una consulta
             $aux=$_SESSION['aux'];
-            $sql1 = "DELETE FROM imagenes WHERE id_productos = $aux";
-            $sql2 = "DELETE FROM comentarios WHERE id_productos = $aux";
-            $sql3 = "DELETE FROM productos WHERE id_productos = $aux";
+            $sql1 = "DELETE FROM imagenes WHERE id_productos = '$aux'";
+            $sql2 = "DELETE FROM comentarios WHERE id_productos = '$aux'";
+            $sql3 = "DELETE FROM productos WHERE id_productos = '$aux'";
             
             $result1 = $conexion->query($sql1);
             $result2 = $conexion->query($sql2);

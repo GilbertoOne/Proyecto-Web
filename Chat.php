@@ -35,13 +35,14 @@ and open the template in the editor.
     <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
+    
     <body onload="ajax();">
         <div id="contenedor">
             <div id="caja-chat">
                 <div id="chat"></div>
             </div>
             <form method="POST" action="Chat.php">
-                <textarea name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
+                <textarea name="mensaje" placeholder="Ingresa tu mensaje" required></textarea>
                 <input type="submit" name="enviar" value="Enviar">
             </form>
             <?php
@@ -66,6 +67,7 @@ and open the template in the editor.
                 }
             ?>
         </div>
+        <a href="index.php">Inicio</a>
         <?php
         mysqli_close($conexion);
         ?>

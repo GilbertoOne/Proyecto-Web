@@ -49,9 +49,13 @@ and open the template in the editor.
             $conexion = conectar();
             $fecha = date('Y-m-d');
             $desc=$_POST['desc'];
+            $desc= mysqli_escape_string($conexion, $desc);
             $nompro=$_POST['nomp'];
+            $nompro= mysqli_escape_string($conexion, $nompro);
             $precio=$_POST['precio'];
+            $precio= mysqli_escape_string($conexion, $precio);
             $cat=$_POST['cat'];
+            $cat= mysqli_escape_string($conexion, $cat);
             $idPro= $_SESSION['auxpro'];
              if(!$conexion && isset($_FILES['miArchivo']) && ($_FILES['miArchivo'] !='')){
                 echo "ERROR";

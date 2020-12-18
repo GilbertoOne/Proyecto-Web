@@ -35,13 +35,13 @@
         
         <!--//Formulario para registrar nuevo usuario-->
         <form action="R.php" method="post" id="PanelPrincipal">
-            Nombre(s): <input type="text" name="nom"> <br> <br>
-            Apellidos: <input type="text" name="ap"> <br> <br>
-            Fecha de nacimiento:<input type="date" name="fechan"> <br> <br>
-            Email: <input type="text" name="nomUs"> <br> <br>
-            Contraseña: <input type="password" name="passUs"> <br> <br>
-            Domicilio: <input type="text" name="dom"> <br> <br>
-            Teléfono: <input type="text" name="tel"> <br> <br>
+            Nombre(s): <input type="text" name="nom" required> <br> <br>
+            Apellidos: <input type="text" name="ap" required> <br> <br>
+            Fecha de nacimiento:<input type="date" name="fechan" required> <br> <br>
+            Email: <input type="email" name="nomUs" required> <br> <br>
+            Contraseña: <input type="password" name="passUs" required> <br> <br>
+            Domicilio: <input type="text" name="dom" required> <br> <br>
+            Teléfono: <input type="tel" name="tel" required> <br> <br>
             <input type="submit" value="Enviar Datos">
         </form>
         <?php

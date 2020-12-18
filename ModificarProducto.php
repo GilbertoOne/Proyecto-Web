@@ -67,23 +67,23 @@
             <table border='1' align='center'>
                 <tr>
                     <td>Nombre del producto:
-                    <input name='nomp' type='text' id='nomp' size='30' maxlength='30'></td>
+                        <input name='nomp' type='text' id='nomp' size='30' maxlength='30' required></td>
                 </tr>
                 <tr>
                     <td>Descripcion:
-                    <input name='desc' type='text' id='desc' size='30' maxlength='799'></td>
+                        <input name='desc' type='text' id='desc' size='30' maxlength='799' required></td>
                 </tr>
                 <tr>
                     <td>Precio:
-                    <input name='precio' type='text' id='precio' size='30' maxlength='30'></td>
+                        <input name='precio' type='text' id='precio' size='30' maxlength='30' required></td>
                 </tr>
                 <tr>
                     <td>Categoria:
-                    <input name='cat' type='text' id='cat' size='30' maxlength='30'></td>
+                        <input name='cat' type='text' id='cat' size='30' maxlength='30' required></td>
                 </tr>
                 <tr>
                     <td>Imagen: 
-                    <input type="file" name="miArchivo"></td>
+                        <input type="file" name="miArchivo" required></td>
                 </tr> 
                 <tr>
                     <td><input type="submit" value="Modificar datos"></td>

@@ -199,7 +199,7 @@
                 
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM productos WHERE categoria = 'Albums'";
+            $sql = "SELECT * FROM productos WHERE categoria = 'Discos'";
             $result = $conexion->query($sql);
             
             if($result->num_rows > 0) {
