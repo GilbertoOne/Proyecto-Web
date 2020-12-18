@@ -79,11 +79,11 @@
             <table align='center'  style= "background: rgba(0,0,0,.09);">
                 <tr>
                     <td>Nombre del producto:
-                    <input name='nomp' type='text' id='nomp' size='30' maxlength='30'></td>
+                    <input name='nomp' type='text' id='nomp' size='30' maxlength='50'></td>
                 </tr>
                 <tr>
                     <td>Descripcion:
-                    <input name='desc' type='text' id='desc' size='30' maxlength='30'></td>
+                    <input name='desc' type='text' id='desc' size='30' maxlength='799'></td>
                 </tr>
                 <tr>
                     <td>Precio:

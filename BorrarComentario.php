@@ -11,35 +11,31 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Borrar Consulta</title>
-        <Link rel="stylesheet" href="Estilo.css">
+        <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body style="text-align: center">
+    <body id="cuerpo">
         <?php
             if(@$_SESSION['autentificado']==TRUE | $_SESSION['status']==1){
         ?>
-        <h1 style="font-size: 35pt">Tienda xd</h1>
-        
-        <div style="position: absolute;background-color: #97F267; 
-             width: 200px; left: 50px; top: 100px; font-size: 18pt;
-             text-align: center;">
-             
-            <a href="index.php"><B>Inicio</B></a>
-	
+        <div id="Banner">
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
         </div>
+
+        <!--Botonera-->
+        <div id="Botonera">
         
-        <div style="position: absolute;background-color: #85A8F6; 
-             width: 200px; left: 50px; top: 150px; font-size: 18pt;
-             text-align: center;">
-            
-            <a href="CerrarSesión.php?salir=true"><B>Cerrar Sesión</B></a> 
-	
+            <!--//Botón de inicio-->
+        <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
+                <B>Inicio</B>
         </div>
-        
-        <div style="position: absolute; background-color: #D7AB09; 
-             width: 200px; left: 50px; top: 350px; font-size: 18pt;
-             text-align: center;">
+        <!--//Botón de cerrar sesión-->
+        <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
+                <B>Cerrar Sesión</B> 
+            </div>
+        <div style="position: absolute; width: 200px; left: 50px; top: 40px; font-size: 18pt; text-align: center; color:white;">
             <?php
-            echo "<B>¡Hola! " .$_SESSION['nomUs']."</B>" 
+            echo "<B>¡Hola, " .$_SESSION['nomUs']."!</B>" 
             ?>
         </div>
         
@@ -54,12 +50,13 @@ and open the template in the editor.
                 
             }
             //Sentencia de consulta SQL para borrar una respuesta
-            $aux=$_SESSION['auxcom'];
-            $sql = "DELETE FROM comentarios WHERE id_comentario = $aux";
+            //$aux=$_SESSION['auxcom'];
+            $aux=$_GET['id'];    
+            $sql = "DELETE FROM comentarios WHERE id_comentario = '$aux'";
             
             $result = $conexion->query($sql);
             
-            echo "Respuesta borrada";
+            echo "<div id='PanelPrincipal'>Respuesta borrada</div>";
             
             
             mysqli_close($conexion);

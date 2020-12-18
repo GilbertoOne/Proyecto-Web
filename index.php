@@ -45,11 +45,12 @@
         <?php
         if ($_SESSION['status'] != 1){
                 ?>
-        <div style="top: 250px; cursor:pointer;" onclick="location.href='Chat.php'" id="Chatbtn">
+        <div style=" cursor:pointer;" onclick="location.href='Chat.php'" id="Chatbtn">
                 <B>Chat</B>
             </div>  
         
-        <div style="top: 250px; cursor:pointer;" onclick="location.href='AvisosUsu.php'" id="Avbtn">
+            
+        <div style=" cursor:pointer;" onclick="location.href='AvisosUsu.php'" id="Avbtn">
                 <B>Avisos</B>
             </div>
         <?php

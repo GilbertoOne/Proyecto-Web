@@ -36,9 +36,9 @@
                     $password=$_POST['passUs'];
                     $password= mysqli_escape_string($conexion, $password);
                     $sql = "SELECT * FROM users
-                            WHERE email = '$email'
+                            WHERE email = '".($_POST['nomUs'])."'
                     AND
-                        password = '$password'";
+                        password = '".sha1($password)."'";
                          
                     $resultado = $conexion->query($sql);
                     if(!$resultado)
@@ -64,7 +64,12 @@
                            $_SESSION['nomUs'] = $row["nombre"];
                            $_SESSION['status'] = $row["admin"];
                             echo "<div id='PanelPrincipal'>";
-                           echo 'Bienvenido, ' . $_SESSION['nomUs'] . '.<br> <a href="index.php">Regresar a inicio</a>';
+                           echo 'Bienvenido, ' . $_SESSION['nomUs'];
+                            ?>
+        
+                            <br> 
+                            <div id="EstiloBotones" style="cursor:pointer; left:415px;" onclick="location.href='index.php'" >Regresar a inicio</div>
+                            <?php
                             echo "</div>";
                         }
                     }
