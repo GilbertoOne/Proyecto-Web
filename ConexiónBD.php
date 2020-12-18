@@ -40,5 +40,24 @@ function fObtenerMime($wfParamCadena){//creamos una funciÃ³n que recibira un p
 function formatearfecha($fecha){
     return date('g: i a', strtotime($fecha));
 }
+
+function borrarprodcarrito($id_producto){
+    $conexion = conectar();
+            
+            if(!$conexion){
+                echo "ERROR";
+            }else{
+                
+            }
+            //Sentencia de consulta SQL para borrar un usuario
+            $id_producto=$id_producto;
+            $sql = "DELETE FROM carrito WHERE id_producto = $id_producto";
+            
+            $result = $conexion->query($sql);
+            
+            echo "Producto borrado";
+            
+            mysqli_close($conexion);
+}
 ?>
 

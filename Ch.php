@@ -35,7 +35,7 @@ and open the template in the editor.
                         //echo $_SESSION['auxidcliente'];
                         $idcliente = $_SESSION['auxidcliente'];
                         $nomcliente = $_SESSION['auxnomcliente'];
-                        $sql = "SELECT * FROM chat  WHERE user_id = $idcliente ORDER BY fecha ASC";
+                        $sql = "SELECT * FROM chat  WHERE user_id = '$idcliente' ORDER BY fecha ASC";
                         $result = $conexion->query($sql);
                         while ($fila = $result->fetch_array()):
                     ?>

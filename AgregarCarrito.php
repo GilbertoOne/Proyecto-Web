@@ -26,7 +26,7 @@ and open the template in the editor.
                 //Sentencia para crear un nuevo usuario
             $var=$_GET['id'];
             $cliente= $_SESSION['idusuario'];
-            $producto= $_SESSION['auxpro'];
+            //$producto= $_SESSION['auxpro'];
             $sql = "INSERT INTO carrito ".
                     "VALUES ('$cliente', '$var', '1')";
             if ($conexion->query($sql) == TRUE) {

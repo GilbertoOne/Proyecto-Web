@@ -88,6 +88,7 @@
                 //echo "Conn ok<BR>";
             }
             //Sentencia de consulta SQL
+            $busqueda= mysqli_real_escape_string($conexion, $busqueda);
             $sql = "SELECT * FROM productos WHERE producto = '$busqueda'";
             $result = $conexion->query($sql);
             
@@ -182,6 +183,7 @@
                 //echo "Conn ok<BR>";
             }
             //Sentencia de consulta SQL
+            $busqueda= mysqli_real_escape_string($conexion, $busqueda);
             $sql = "SELECT * FROM productos WHERE producto = '$busqueda'";
             $result = $conexion->query($sql);
             

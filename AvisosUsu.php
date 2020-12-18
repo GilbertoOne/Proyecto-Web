@@ -1,29 +1,31 @@
-<!DOCTYPE html>
 
 <?php
     session_start();
-    $var=$_GET['id'];
-    $_SESSION['auxidcliente'] = $var;
 ?>
 <html>
     
     <head>
         <meta charset="UTF-8">
-        <title>Avisos</title>
+        <title>Symphony</title>
         <link rel="stylesheet" type="text/css" href="Estilo.css">
+        
+        <!--Para botones deslizantes-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
     </head>
     
     <body id="cuerpo">
+        <!--//Autentificación-->
+        
         <?php
-            if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
+            if(@$_SESSION['autentificado']==TRUE){
         ?>
-        <!--Banner--> 
         <div id="Banner">
-            <h1 >Symphony</h1>
-            <h5 >Music is the answer</h5>
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
         </div>
         
-       <!--Botonera-->
+        <!--Botonera-->
         <div id="Botonera">
         
             <!--//Botón de inicio-->
@@ -35,7 +37,6 @@
         <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
                 <B>Cerrar Sesión</B> 
             </div>
- 
         
         <div style="position: absolute; width: 200px; left: 50px; top: 40px; font-size: 18pt; text-align: center; color:white;">
             <?php
@@ -61,89 +62,80 @@
         <!--/Botonera-->
         
         <div id="PanelPrincipal">
-        <?php
         
+        <?php
         include ("ConexiónBD.php");
             $conexion = conectar();
             
             if(!$conexion){
                 echo "ERROR";
-            }else{
-                
             }
             //Sentencia de consulta SQL
-            $id = $_SESSION['auxidcliente'];
-            $sql = "SELECT * FROM users WHERE user_id = '$id'";
+            $personal=$_SESSION["idusuario"];
+        
+            $sql1 = "SELECT * FROM avisos WHERE user_id = '$personal'";
+            $resul = $conexion->query($sql1);
+            if($resul->num_rows > 0) {
+                while($rowx = $resul->fetch_assoc()) {
+                    
             
+            $sql = "SELECT * FROM productos WHERE id_productos = " .$rowx["id_productos"];
             $result = $conexion->query($sql);
             
             if($result->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
-                while($row = $result->fetch_assoc()) {
-                    $_SESSION['aux']=$row["user_id"];
-                    $_SESSION['auxidcliente']=$row["user_id"];
-                    $_SESSION['auxnomcliente']=$row["nombre"];
-                    echo "<B>Id usuario</B> ". $row["user_id"] . "<br><B> Email: </B>" .
-                            $row["email"] . "<br><B> Contraseña</B> <br>" . $row["password"] . 
-                            "<br> <B>Nombre: </B>" .$row["nombre"] . "<br> <B>Apellidos:</B> " . $row["apellido"] .
-                            "<br><B>Status: </B>" . $row["admin"] . "<br> <B>Fecha de nacimiento:</B> " . $row["fechan"] .
-                            "<br> <B>Teléfono: </B>" . $row["telefono"]. "<br><B>Dirección: </B>" . $row["domicilio"] .
-                            "<br>";
-                    
-                    
-                    $cat = $row["gustos"];
-                    $sqlpro = "SELECT * FROM productos WHERE categoria = '$cat' ";
-                    $resultpro = $conexion->query($sqlpro);
-            
-            if($resultpro->num_rows > 0) {
-                //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 
-                while($rowpro = $resultpro->fetch_assoc()) {
+                while($row = $result->fetch_assoc()) {
                     
-                    $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$rowpro["id_productos"]);
+                    $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> Producto: </B>" . $rowpro["producto"] . "<br><B> Descripción: </B><br>" . $rowpro["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$rowpro["categoria"] . "<br> <B>Precio: </B>" . $rowpro["precio"] . "<br>" .
-                         "<B>Fecha: </B>" .$rowpro["fechap"] . "<br><br>";
-                ?> 
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
+                    
+        ?>
+            
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-            <div style="cursor:pointer; left:100px;" onclick="location.href='Sugerencia.php?idpro=<?php echo $rowpro["id_productos"]?>&idusu=<?php echo $row["user_id"]?>'" id="EstiloBotones">Enviar</div>
-            <?php
-                }
-            } else {
-                echo 'No hay gustos';
-            }
+            <br>
+            <div style="cursor:pointer; left:300px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                    Ver
+            </div>
+            <br>
+            <div style="cursor:pointer; left:300px; " onclick="location.href='Bavi.php?id=<?php echo $rowx["id_productos"] ?>'" id="EstiloBotones">
+                    Borrar
+            </div>
+            <br>
+            <br>
+            <br>
+            
+        <?php
+            }} }
+            
+            
             ?>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            
             <?php
-                }
-            } else {
-                echo "No hay usuarios";
-            }
-            
-            
+                } 
+            else {
+                echo "No hay avisos";
+            }    
             mysqli_close($conexion);
         ?>
+        </div>
+        
         
         <?php
-        // put your code here
-        }
+            }
             else
             {
         ?>
-        
         <p>Ocurrió un error en el inicio de sesión. Regresaras a la página de inicio</p>
         <a href="index.php">Inicio</a>
         
-            <?php
+        <?php
             }
-        ?>
-        </div>
+        ?> 
     </body>
 </html>

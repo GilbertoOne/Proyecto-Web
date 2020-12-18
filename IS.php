@@ -31,10 +31,14 @@
             {
                 if(@$_SESSION['autentificado']!=TRUE)
                 {   //Consulta para verificar usuario
+                    $email=$_POST['nomUs'];
+                    $email= mysqli_escape_string($conexion, $email);
+                    $password=$_POST['passUs'];
+                    $password= mysqli_escape_string($conexion, $password);
                     $sql = "SELECT * FROM users
-                            WHERE email = '" . ($_POST['nomUs']) . "'
+                            WHERE email = '$email'
                     AND
-                        password = '" . sha1($_POST['passUs']) . "'";
+                        password = '$password'";
                          
                     $resultado = $conexion->query($sql);
                     if(!$resultado)

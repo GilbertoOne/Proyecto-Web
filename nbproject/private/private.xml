@@ -5,28 +5,33 @@
         <group>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Buscar.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/IniciarSesión.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Registrarse.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Chat.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/IS.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/MP.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/view.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Ch.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ModificarProducto.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/R.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ChAdmin.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/README.md</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Estilo.css</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/CerrarSesión.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/AgregarProducto.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/FormAP.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ModificarUsuario.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Producto.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/index.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/VerUsuarios.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ConexiónBD.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/AgregarCarrito.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Instrumentos.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/BorrarUsuario.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Registrarse.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/view.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Ch.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Avisos.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ModificarProducto.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/VerCarrito.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Estilo.css</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/CerrarSesión.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/ModificarUsuario.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/MU.php</file>
             <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/EnvíoCorreo.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/BorrarUsuario.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto/Proyecto-Web/Albums.php</file>
         </group>
     </open-files>
 </project-private>

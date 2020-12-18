@@ -7,7 +7,7 @@ and open the template in the editor.
 <?php
     session_start();
     $var=$_GET['id'];
-    $_SESSION['auxidcliente'] = $var;
+    //$_SESSION['auxidcliente'] = $var;
 ?>
 <html>
     <head>
@@ -18,7 +18,7 @@ and open the template in the editor.
     
     <body id="cuerpo">
         <?php
-            if(@$_SESSION['autentificado']==TRUE && $_SESSION['status']==1){
+            if(@$_SESSION['autentificado']==TRUE){
         ?>
         <!--Banner--> 
         <div id="Banner">
@@ -74,14 +74,14 @@ and open the template in the editor.
                 
             }
             //Sentencia de consulta SQL para borrar un usuario
-            $aux=$_SESSION['auxidcliente'];
-            $sql = "DELETE FROM users WHERE user_id = '$aux'";
+            //$aux=$_SESSION['auxidproducto'];
+            $sql = "DELETE FROM carrito WHERE id_productos = '$var'";
             
             $result = $conexion->query($sql);
             
             echo "<div id='PanelPrincipal'>";
             
-            echo "Usuario borrado";
+            echo "Producto borrado";
             
             echo "</div>";
             mysqli_close($conexion);
@@ -103,4 +103,3 @@ and open the template in the editor.
         
     </body>
 </html>
-

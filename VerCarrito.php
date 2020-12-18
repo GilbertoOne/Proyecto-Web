@@ -99,6 +99,9 @@
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
             <br>
+            <div style="cursor:pointer; left:300px; " onclick="location.href='BPC.php?id=<?php echo $rowx["id_productos"] ?>'" id="EstiloBotones">
+                    Borrar
+            </div>
             <br>
             <br>
             <br>
@@ -108,7 +111,7 @@
             
             echo "<br><B> Total: $total";
             ?>
-            <div style="cursor:pointer; left:300px; " onclick="location.href='EnvíoCorreo.php'" id="EstiloBotones">
+            <div style="cursor:pointer; left:300px; " onclick="location.href='EnvíoCorreo.php?id=<?php echo $total ?>'" id="EstiloBotones">
                     Comprar
             </div>
             <?php
