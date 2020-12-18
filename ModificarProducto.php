@@ -71,7 +71,7 @@
                 </tr>
                 <tr>
                     <td>Descripcion:
-                    <input name='desc' type='text' id='desc' size='30' maxlength='30'></td>
+                    <input name='desc' type='text' id='desc' size='30' maxlength='799'></td>
                 </tr>
                 <tr>
                     <td>Precio:

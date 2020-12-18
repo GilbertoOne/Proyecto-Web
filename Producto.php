@@ -111,23 +111,29 @@ and open the template in the editor.
                     ?> 
                 <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
                 <br>
-                    <div style="cursor:pointer; left:300px; " onclick="location.href='AgregarCarrito.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
+                    <div style="cursor:pointer; left:410px; " onclick="location.href='AgregarCarrito.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
                     Agregar al carrito
                     </div>
+            <br>
+            <br>
+            <br>
                 <?php
                 
                 $idusu=$_SESSION['idusuario'];
                 $cat = $row["categoria"];
-                echo $idusu;
                  $sqlgus = "UPDATE users SET gustos = '$cat' WHERE user_id = '$idusu'"; 
                  $resultgus = $conexion->query($sqlgus);
                 
                 
                     $_SESSION['auxprecio']=$row["precio"];
                     if ($_SESSION['status']==1){
-                        echo "<a href=BorrarProducto.php><B>Borrar</B></a><br>";
+                        ?>
+                        <div id="EstiloBotones"style="cursor:pointer; left: 200px; top:571px;" onclick="location.href='BorrarProducto.php'"><B>Borrar</B></div>
+            <?php
                         $_SESSION['auxpro']=$row["id_productos"];
-                        echo "<a href=ModificarProducto.php><B>Modificar</B></a><br><br><br>";
+            ?>
+                        <div id="EstiloBotones" style="cursor:pointer; left:620px; top:571px" onclick="href='ModificarProducto.php'"><B>Modificar</B></div><br><br><br>
+            <?php
                     }
                 }
             } else {
@@ -143,7 +149,14 @@ and open the template in the editor.
                     
                     if ($_SESSION['status']==1){
                         $_SESSION['auxcom']=$row1["id_comentario"];
-                        echo "<a href=BorrarComentario.php><B>Borrar</B></a><br>";
+                        
+                        echo "<a href='BorrarComentario.php?id=".$row1["id_comentario"]."'><B>Borrar</B></a><br>";
+                        
+                        ?>
+            <br>
+            <br>
+            <br>
+            <?php
                     }
                 }
             } else {
@@ -152,6 +165,9 @@ and open the template in the editor.
             
             mysqli_close($conexion);
         ?>
+            <br>
+            <br>
+            <br>
                 <form action="AC.php" method="post" style="text-align: center">
                 Comentar: <br><br><textarea name="respuesta" cols="75" rows="5"></textarea> <br> <br>
                 <input type="submit" value="Enviar">
@@ -161,7 +177,7 @@ and open the template in the editor.
             else
             {
         ?>
-         
+            </div>
         <div id="Banner">
             <h1>Symphony</h1>
             <h5>Music is the answer</h5>
@@ -260,7 +276,6 @@ and open the template in the editor.
         ?>
             </div>
         </div>   
-        
         <!--No loggeado-->
         
     </body>
