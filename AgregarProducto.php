@@ -24,13 +24,13 @@
                 $nompro= mysqli_escape_string($conexion, $nompro);
                 $precio=$_POST['precio'];
                 $precio= mysqli_escape_string($conexion, $precio);
-                $categoria=$_POST['categoria'];
+                $categoria=$_POST['cat'];
                 $categoria= mysqli_escape_string($conexion, $categoria);
                 #Consulta para insertar una nueva consulta en la tabla de consultas
                 #Con los datos que nos llegaron de la pagina anterior y la fecha como date.
-                $sql="INSERT INTO productos(descripcion,fechap,producto,precio,categoria) "
-                        . "VALUES ('$descripcion,'".date('Y-m-d')."','$nompro'
-                        ,'$precio','$categoria'";
+                $sql="INSERT INTO productos(descripcion,fechap,producto,precio,categoria) " . 
+                    "VALUES ('$descripcion','".date('Y-m-d')."','$nompro'
+                        ,'$precio','$categoria')";
                 
                 //$sql="INSERT INTO productos(descripcion,fechap,producto,precio,categoria) "
                 //        . "VALUES ('".$_POST['desc']."','".date('Y-m-d')."','"

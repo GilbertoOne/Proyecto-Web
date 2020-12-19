@@ -13,7 +13,81 @@ and open the template in the editor.
         <title>Correo</title>
         <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
-    <body>
+    <body id="cuerproducto">
+        <div id="Banner">
+            <h1>Symphony</h1>
+            <h5>Music is the answer</h5>
+        </div>
+        
+        <!--Botonera-->
+        <div id="Botonera">
+        
+            <!--//Botón de inicio-->
+        <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
+                <B>Inicio</B>
+        </div> 
+            
+        <div style="cursor:pointer;" onclick="location.href='VerCarrito.php'" id="CarritoBtn">
+                <B>Carrito</B>
+        </div> 
+        
+        <!--//Botón de cerrar sesión-->
+        <div id="InicioSesionBtn" style="top:150px; cursor:pointer;" onclick="location.href='CerrarSesión.php?salir=true'">
+                <B>Cerrar Sesión</B> 
+            </div>
+        <?php
+        if ($_SESSION['status'] != 1){
+                ?>
+        <div style=" cursor:pointer;" onclick="location.href='Chat.php'" id="Chatbtn">
+                <B>Chat</B>
+            </div>  
+        
+            
+        <div style=" cursor:pointer;" onclick="location.href='AvisosUsu.php'" id="Avbtn">
+                <B>Avisos</B>
+            </div>
+        <?php
+                }
+            ?>
+ 
+        <!--//Botón de buscar-->
+<!--Slide de busqueda-->
+            <script>
+                $(document).ready(function(){
+                    $("#TextoB").click(function(){
+                        $("#Searcher").slideDown("slow");})
+                })
+            </script>
+            
+            <div style="top: 350px" id="BuscadorProdBtn">
+                <B id="TextoB">Buscador de productos</B>
+                <form action="Buscar.php" method="post" id="Searcher">
+                    <input type="search" name="tema" size="15" required> <br>
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
+        
+        <div style="position: absolute; width: 200px; left: 50px; top: 40px; font-size: 18pt; text-align: center; color:white;">
+            <?php
+            echo "<B>¡Hola, " .$_SESSION['nomUs']."!</B>" 
+            ?>
+        </div>
+        
+        <?php
+        if ($_SESSION['status'] == 1){
+                ?>
+                    <div id="AdminUsrBtn" style="cursor:pointer;" onclick="location.href='VerUsuarios.php'">
+                       <B>Administrar Usuarios</B>
+                   </div>
+            
+                    <!--//Botón de agregar producto-->
+                    <div id="AdminProdBtn" style="cursor:pointer;" onclick="location.href='FormAP.php'">
+                        <B>Agregar productos</B>
+                    </div> 
+            <?php
+                }
+            ?>
+        </div>
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
@@ -88,12 +162,18 @@ and open the template in the editor.
         
         if (mail($para, $asunto, $descripcion, $de))
            {
-        echo "Compra realizada con éxito";
+            
+        ?>
+        <script type="text/javascript">
+            window.alert("Compra realizada con éxito");
+        </script>
+        <?php
         //include ("ConexiónBD.php");
             //$conexion = conectar();
             $sql = "DELETE from carrito";
             $result = $conexion->query($sql);
             mysqli_close($conexion);
+            
         }
         ?>
         

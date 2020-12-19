@@ -20,11 +20,14 @@
         <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
+        
         <div id="Banner">
             <h1>Symphony</h1>
             <h5>Music is the answer</h5>
         </div>
-        
+        <div style="position:absolute; Top:200px; left:400px; font-family: sans-serif; font-size:30px;">
+        <b>¡Checa estos avisos de productos que te pueden interesar! </b>
+        </div>
         <!--Botonera-->
         <div id="Botonera">
         
@@ -90,9 +93,9 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
-                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br><br> <B>Categoría: </B>" .$row["categoria"] . "<br> <br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                         "<br><B>Fecha: </B>" .$row["fechap"] . "<br><br>";
                     
         ?>
             
@@ -102,8 +105,8 @@
             <div style="cursor:pointer; left:300px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
                     Ver
             </div>
-            <br>
-            <div style="cursor:pointer; left:300px; " onclick="location.href='Bavi.php?id=<?php echo $rowx["id_productos"] ?>'" id="EstiloBotones">
+            
+            <div style="cursor:pointer; left:510px; " onclick="location.href='Bavi.php?id=<?php echo $rowx["id_productos"] ?>'" id="EstiloBotones">
                     Borrar
             </div>
             <br>

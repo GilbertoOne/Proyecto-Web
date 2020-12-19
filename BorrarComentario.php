@@ -57,6 +57,7 @@ and open the template in the editor.
             $result = $conexion->query($sql);
             
             echo "<div id='PanelPrincipal'>Respuesta borrada</div>";
+                header('Location: Albums.php');
             
             
             mysqli_close($conexion);

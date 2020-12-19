@@ -69,7 +69,7 @@
             <div style="top: 350px" id="BuscadorProdBtn">
                 <B id="TextoB">Buscador de productos</B>
                 <form action="Buscar.php" method="post" id="Searcher">
-                    <input type="search" name="tema" size="15"> <br>
+                    <input type="search" name="tema" size="15" required> <br>
                     <input type="submit" value="Buscar">
                 </form>
             </div>
@@ -118,15 +118,14 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
-                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><br>" .
+                         " <B>Categoría: </B>" .$row["categoria"] . "<br><br> <B>Precio: </B> $" . $row["precio"] . " MXN<br>" ."<br>";
         ?>
             
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
             <div style="cursor:pointer; left:300px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
-                Comentarios
+                Detalles y Comentarios
             </div>
             
             <div style="cursor:pointer; left:520px; " onclick="location.href='AgregarCarrito.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
@@ -186,7 +185,7 @@
             <div style="top: 350px" id="BuscadorProdBtn">
                 <B id="TextoB">Buscador de productos</B>
                 <form action="Buscar.php" method="post" id="Searcher">
-                    <input type="text" name="tema" size="15"> <br>
+                    <input type="search" name="tema" size="15" required> <br>
                     <input type="submit" value="Buscar">
                 </form>
             </div>
@@ -215,15 +214,14 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
-                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
-                ?> 
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><br>" .
+                         " <B>Categoría: </B>" .$row["categoria"] . "<br><br> <B>Precio: </B> $" . $row["precio"] . " MXN<br>" ."<br>";
+            ?> 
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
 
             <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
-                Comentarios
+                Detalles y Comentarios
             </div>
             
             <br>

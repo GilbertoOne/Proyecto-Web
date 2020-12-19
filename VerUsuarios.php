@@ -91,7 +91,7 @@
             <div style="cursor:pointer; left:100px;" onclick="location.href='ModificarUsuario.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Modificar</div>
             <div style="cursor:pointer; left:310px;" onclick="location.href='BorrarUsuario.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Borrar</div>
             <div style="cursor:pointer; left:520px;" onclick="location.href='ChAdmin.php?id=<?php echo $row["user_id"]?>&nom=<?php echo $row["nombre"]?>'" id="EstiloBotones">Chat</div>
-            <div style="cursor:pointer; left:630px;" onclick="location.href='Avisos.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Avisos</div>
+            <div style="cursor:pointer; left:730px;" onclick="location.href='Avisos.php?id=<?php echo $row["user_id"]?>'" id="EstiloBotones">Avisos</div>
             <br>
             <br>
             <br>

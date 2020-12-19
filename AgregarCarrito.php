@@ -32,6 +32,7 @@ and open the template in the editor.
                     "VALUES ('$cliente', '$var', '1')";
             if ($conexion->query($sql) == TRUE) {
                 echo 'Agregado con éxito';
+                header('Location: VerCarrito.php');
                     } else {echo "Error: " . $sql . "<br>" . $conexion->error;}
             }
             

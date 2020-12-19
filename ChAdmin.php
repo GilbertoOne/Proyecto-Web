@@ -38,8 +38,12 @@ and open the template in the editor.
     <?php
             if(@$_SESSION['autentificado']==TRUE){
         ?>
-    <body onload="ajax();">
-        <div id="contenedor">
+    <body onload="ajax();" id="cuerproducto">
+        <div id="Banner" style="height: 80px;">
+            <h1>Symphony</h1>
+            
+        </div>
+        <div id="contenedor" >
             <div id="caja-chat">
                 <div id="chat"></div>
             </div>
@@ -69,6 +73,9 @@ and open the template in the editor.
                 }
             ?>
         </div>
+        <div style="cursor:pointer;" onclick="location.href='index.php'" id="InicioBtn">
+                <B>Inicio</B>
+        </div> 
         <?php
         mysqli_close($conexion);
         ?>

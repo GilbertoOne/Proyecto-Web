@@ -14,7 +14,7 @@
         </script>
     </head>
     
-    <body id="cuerpo">
+    <body id="cuerpoCarrito">
         <!--//Autentificación-->
         
         <?php
@@ -90,21 +90,24 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
-                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
+                    echo "<br><B> Producto: </B>" . $row["producto"] .  
+                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>$" . $row["precio"] . " MXN<br>";
                     $total += $row["precio"]*$rowx["cantidad"];
         ?>
             
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
             <br>
-            <div style="cursor:pointer; left:300px; " onclick="location.href='BPC.php?id=<?php echo $rowx["id_productos"] ?>'" id="EstiloBotones">
+        
+            <div style="cursor:pointer; left:420px;" onclick="location.href='BPC.php?id=<?php echo $rowx["id_productos"] ?>'" id="EstiloBotones">
                     Borrar
             </div>
+            <br>
+            <br>
+            <br>
             <form action="ActualizarCant.php?id=<?php echo $rowx["id_productos"]?>" method="post">    
                 Cambiar cantidad: <input type="number" name="cantidad" min="1" max="10" step="1">
-                <input type="submit" value="Enviar" style="width: 80px; heigth: 20px">
+                <input type="submit" value="Cambiar" style="width: 80px; heigth: 20px">
             </form> 
             <br>
             <br>
@@ -113,9 +116,12 @@
         <?php
             }} }
             
-            echo "<br><B> Total: $total";
+            echo "<br><B> Total: $$total MXN";
             ?>
-            <div style="cursor:pointer; left:300px; " onclick="location.href='EnvíoCorreo.php?id=<?php echo $total ?>'" id="EstiloBotones">
+            <br>
+            <br>
+            <br>
+            <div style="cursor:pointer; left:400px;" onclick="location.href='EnvíoCorreo.php?id=<?php echo $total ?>'" id="EstiloBotones">
                     Comprar
             </div>
             <?php
