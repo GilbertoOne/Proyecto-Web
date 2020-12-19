@@ -63,6 +63,7 @@ and open the template in the editor.
             echo "<p>";
             if ($conexion->query($sql) == TRUE) {
                 echo "<div id='PanelPrincipal'>Respuesta agregada con éxito </div>";
+                header('Location: Producto.php?id='.$idPro);
             } else {
                 echo "Error: " . $sql . "<br>" . $conexion->error;
             }

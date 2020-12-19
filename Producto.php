@@ -15,7 +15,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="Estilo.css">
     </head>
     
-    <body id="cuerpo">
+    <body id="cuerproducto">
         <!--Loggeado-->
         <?php
             if(@$_SESSION['autentificado']==TRUE){
@@ -93,8 +93,8 @@ and open the template in the editor.
                 //echo "Conn ok<BR>";
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM productos WHERE id_productos =  $var";
-            $sql1 = "SELECT * FROM comentarios WHERE id_productos =  $var";
+            $sql = "SELECT * FROM productos WHERE id_productos =  '$var'";
+            $sql1 = "SELECT * FROM comentarios INNER JOIN users on comentarios.user_id = users.user_id where id_productos='$var';";
             $result = $conexion->query($sql);
             $result1 = $conexion->query($sql1);
             
@@ -105,8 +105,8 @@ and open the template in the editor.
                     $result2 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result2->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br><br> <B>Categoría: </B>" .$row["categoria"] . "<br><br> <B>Precio: </B>$" . $row["precio"] . " MXN<br><br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
                     ?> 
                 <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
@@ -128,11 +128,12 @@ and open the template in the editor.
                     $_SESSION['auxprecio']=$row["precio"];
                     if ($_SESSION['status']==1){
                         ?>
-                        <div id="EstiloBotones" style="cursor:pointer; left: 200px; top:571px;" onclick="location.href='BorrarProducto.php'"><B>Borrar</B></div>
+                        <div id="EstiloBotones" style="cursor:pointer; left: 300px;" onclick="location.href='BorrarProducto.php'"><B>Borrar</B></div>
             <?php
                         $_SESSION['auxpro']=$row["id_productos"];
             ?>
-                        <div id="EstiloBotones" style="cursor:pointer; left:620px; top:571px" onclick="href='ModificarProducto.php'"><B>Modificar</B></div><br><br><br>
+                        <div id="EstiloBotones" style="cursor:pointer; left:510px; " onclick="location.href='ModificarProducto.php'"><B>Modificar</B>
+            </div><br><br><br>
             <?php
                     }
                 }
@@ -143,7 +144,7 @@ and open the template in the editor.
            if($result1->num_rows > 0) {
                 //Recorremos cada registro y obtenemos los valores de las columnas especificadas
                 while($row1 = $result1->fetch_assoc()) {
-                    echo "<br><B>  Comentario </B><br><B> De: </B>" . $row1["user_id"] .
+                    echo "<br><B>  Comentario </B><br><B> De: </B>" . $row1["nombre"] ." ".$row1["apellido"].
                            "<br>". $row1["contenido"] . "<br> <B>Fecha: </B>" .$row1["fechac"] . 
                             "<br>";
                     
@@ -243,8 +244,8 @@ and open the template in the editor.
                     $result2 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result2->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> - Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
+                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><br><B> Descripción: </B><br>" . $row["descripcion"] . 
+                         "<br><br> <B>Categoría: </B>" .$row["categoria"] . "<br><br> <B>Precio: </B>$" . $row["precio"] . " MXN<br><br>" .
                          "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
                     ?> 
                 <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">

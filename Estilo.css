@@ -25,6 +25,7 @@
     top: 150px;
 }
 
+
 #Banner {
     visibility: visible;
     position: absolute;
@@ -132,6 +133,7 @@
     background: rgba(153, 0, 51,.5);
 }
 
+
 #InstrumentBtn {
     color: white;
     position: absolute;
@@ -221,6 +223,9 @@
 }
 
 #contenedor{
+    position: absolute;
+    left: 400px;
+    top: 90px;
     width: 40%;
     background: #fff;
     margin: 0 auto;
@@ -245,17 +250,54 @@
 }
 
 input[type='text']{
-    width: 100%;
-    height: 40px;
+    width: 95%;
+    height: 35px;
     border: 1px solid gray;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
+input[type='email']{
+    width: 95%;
+    height: 35px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+input[type='date']{
+    width: 95%;
+    height: 35px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+input[type='password']{
+    width: 95%;
+    height: 35px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+input[type='tel']{
+    width: 95%;
+    height: 35px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
 input[type='submit']{
-    width: 100%;
-    height: 40px;
+    width: 95%;
+    height: 35px;
     border: 1px solid gray;
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -345,4 +387,39 @@ input:invalid:required {
 
 input:valid {
   border: 2px solid black;
+}
+#cuerpoAlbum {
+    font-family: sans-serif;
+    /*background-image: url(Texturas/BG.jpg);*/
+    transition: .5s;
+    background-image: linear-gradient(180rad, #d77872, rgb(153, 0, 51));
+    font-size: 15pt;
+    color: white;
+}
+
+#cuerpoInstrumento {
+    font-family: sans-serif;
+    /*background-image: url(Texturas/BG.jpg);*/
+    transition: .5s;
+    background-image: linear-gradient(180rad, rgb(51, 51, 153), #d77872);
+    font-size: 15pt;
+    color: white;
+}
+
+#cuerpoCarrito {
+    font-family: sans-serif;
+    /*background-image: url(Texturas/BG.jpg);*/
+    transition: .5s;
+    background-image: linear-gradient(180rad,  #27cce0, #b635ab, rgb(36, 143, 36));
+     
+    font-size: 15pt;
+    color: white;
+}
+
+#cuerproducto {
+     font-family: sans-serif;
+    /*background-image: url(Texturas/BG.jpg);*/
+    background-image: linear-gradient(180rad, rgb(51, 51, 153),   #d77872, rgb(153, 0, 51));
+    font-size: 15pt;
+    color: white;
 }

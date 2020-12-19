@@ -15,7 +15,7 @@
         </script>
     </head>
     
-    <body id="cuerpo">
+    <body id="cuerpoAlbum">
         <!--//Autentificación-->
         
         <?php
@@ -102,7 +102,7 @@
                 echo "ERROR";
             }
             //Sentencia de consulta SQL
-            $sql = "SELECT * FROM productos WHERE categoria = 'Albums'";
+            $sql = "SELECT * FROM productos WHERE categoria = 'Discos'";
             $result = $conexion->query($sql);
             
             if($result->num_rows > 0) {
@@ -113,10 +113,9 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
-                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
-        ?>
+                    echo "<br><B> Producto: </B>" . $row["producto"]  . 
+                         "<br><br> <B>Categoría: </B>" .$row["categoria"] . "<br><br> <B>Precio: </B>$" . $row["precio"] . " MXN<br>" . "<br>";
+                ?>
             
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
@@ -210,15 +209,14 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$row["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> Producto: </B>" . $row["producto"] . "<br><B> Descripción: </B><br>" . $row["descripcion"] . 
-                         "<br> <B>Categoría: </B>" .$row["categoria"] . "<br> <B>Precio: </B>" . $row["precio"] . "<br>" .
-                         "<B>Fecha: </B>" .$row["fechap"] . "<br><br>";
+                    echo "<br><B> Producto: </B>" . $row["producto"]  . 
+                         "<br><br> <B>Categoría: </B>" .$row["categoria"] . "<br><br> <B>Precio: </B>$" . $row["precio"] . " MXN<br>" . "<br>";
                 ?> 
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
 
             <div style="cursor:pointer; left:410px; " onclick="location.href='Producto.php?id=<?php echo $row["id_productos"]?>'" id="EstiloBotones">
-                Comentarios
+                Detalles y Comentarios 
             </div>
             
             <br>

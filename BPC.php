@@ -80,7 +80,7 @@ and open the template in the editor.
             $result = $conexion->query($sql);
             
             echo "<div id='PanelPrincipal'>";
-            
+            header('Location: VerCarrito.php');
             echo "Producto borrado";
             
             echo "</div>";
