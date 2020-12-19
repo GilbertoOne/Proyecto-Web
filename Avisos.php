@@ -103,13 +103,15 @@
                     $result1 = mysqli_query($conexion,"Select * from imagenes where id_productos = ".$rowpro["id_productos"]);
                     $imagen = $result1->fetch_assoc();
                     $mime = fObtenerMime($imagen['extension']);//Obtenemos el mime del archivo.
-                    echo "<br><B> Producto: </B>" . $rowpro["producto"] . "<br><B> Descripción: </B><br>" . $rowpro["descripcion"] . 
+                    echo "<br><br><br><B> Producto: </B>" . $rowpro["producto"] . "<br><B> Descripción: </B><br>" . $rowpro["descripcion"] . 
                          "<br> <B>Categoría: </B>" .$rowpro["categoria"] . "<br> <B>Precio: </B>" . $rowpro["precio"] . "<br>" .
-                         "<B>Fecha: </B>" .$rowpro["fechap"] . "<br><br>";
+                         "<B>Fecha: </B>" .$rowpro["fechap"] . "<br><br><br>";
                 ?> 
             <img src="data:<?php echo $mime ?>;base64,<?php echo base64_encode($imagen['binario']); ?>" width="250" height="250">
             <br>
-            <div style="cursor:pointer; left:100px;" onclick="location.href='Sugerencia.php?idpro=<?php echo $rowpro["id_productos"]?>&idusu=<?php echo $row["user_id"]?>'" id="EstiloBotones">Enviar</div>
+            <br>
+            
+            <div style="cursor:pointer; left:420px;" onclick="location.href='Sugerencia.php?idpro=<?php echo $rowpro["id_productos"]?>&idusu=<?php echo $row["user_id"]?>'" id="EstiloBotones">Enviar</div>
             <?php
                 }
             } else {

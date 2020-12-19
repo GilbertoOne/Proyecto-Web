@@ -60,7 +60,7 @@ and open the template in the editor.
             $result3 = $conexion->query($sql3);
             ?>
             
-            <div id="PanelPrincipal"> Tema borrado</div>
+            <div id="PanelPrincipal"> Producto borrado</div>
             <?php
             
             mysqli_close($conexion);

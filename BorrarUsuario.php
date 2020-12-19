@@ -71,13 +71,22 @@ and open the template in the editor.
             if(!$conexion){
                 echo "ERROR";
             }else{
-                
+           
             }
             //Sentencia de consulta SQL para borrar un usuario
             $aux=$_SESSION['auxidcliente'];
-            $sql = "DELETE FROM users WHERE user_id = '$aux'";
-            
+            $sqlDel = "DELETE FROM chat WHERE user_id = '$var'";
+            $result1 = $conexion->query($sqlDel);
+            $sqlDel2 = "DELETE FROM comentarios WHERE user_id = '$var'";
+            $result2 = $conexion->query($sqlDel2);
+            $sqlDel3 = "DELETE FROM avisos WHERE user_id = '$var'";   
+            $result3 = $conexion->query($sqlDel3);
+            $sql = "DELETE FROM users WHERE user_id = '$var'";
             $result = $conexion->query($sql);
+            
+            
+             if ($conexion->query($sql) == TRUE) {
+                 
             
             echo "<div id='PanelPrincipal'>";
             
@@ -85,6 +94,11 @@ and open the template in the editor.
             
             echo "</div>";
             mysqli_close($conexion);
+             }
+                else{
+                   
+                    echo "Error: " . $sql . "<br>" . $conexion->error;
+                }
         ?>
         
         <?php
